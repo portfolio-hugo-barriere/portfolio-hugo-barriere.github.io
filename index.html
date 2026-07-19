@@ -1,9 +1,4 @@
 <!DOCTYPE HTML>
-<!--
-    Dimension by HTML5 UP
-    html5up.net | @ajlkn
-    Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
--->
 <html>
     <head>
         <title>Portfolio d'Hugo BARRIERE</title>
@@ -49,7 +44,7 @@
                 font-weight: bold;
             }
             
-            /* 3. Système de carrousel (diplômes et expériences) */
+            /* 3. Système de carrousel (diplômes, expériences, compétences) */
             .slider-container {
                 display: flex;
                 overflow-x: auto;
@@ -74,6 +69,15 @@
                 margin-bottom: 5px;
                 font-size: 1.1rem;
                 letter-spacing: 0.1rem;
+            }
+            .slider-item ul {
+                margin-top: 15px;
+                padding-left: 20px;
+            }
+            .slider-item li {
+                font-size: 0.9rem;
+                line-height: 1.6;
+                margin-bottom: 10px;
             }
             .slider-instruction {
                 font-size: 0.8rem;
@@ -245,15 +249,13 @@
     </head>
     <body class="is-preload">
 
-        <!-- Wrapper -->
-            <div id="wrapper">
+        <div id="wrapper">
                 
                 <div class="language-toggle">
                     <a href="#" class="active">FR</a> | <a href="#">EN</a>
                 </div>
 
-                <!-- Header -->
-                    <header id="header">
+                <header id="header">
                         <div class="content">
                             <div class="inner">
                                 <h1>Portfolio d'Hugo BARRIERE</h1>
@@ -263,27 +265,24 @@
                             <ul>
                                 <li><a href="#profil">Profil</a></li>
                                 <li><a href="#experiences">Expériences</a></li>
+                                <li><a href="#competences">Compétences</a></li>
                                 <li><a href="#diplomes">Diplômes</a></li>
                                 <li><a href="#contact">Contact</a></li>
                             </ul>
                         </nav>
                     </header>
 
-                <!-- Main -->
-                    <div id="main">
+                <div id="main">
 
-                        <!-- Profil -->
-                            <article id="profil">
+                        <article id="profil">
                                 <h2 class="major">Profil</h2>
                                 
-                                <!-- PHOTO DE PROFIL -->
                                 <img src="images/photo_profil.jpeg" alt="Photo de Hugo Barriere" class="profile-photo" />
                                 
                                 <p>Étudiant de troisième année en BUT Mesures Physiques à l'IUT de Montpellier, je suis passionné depuis petit par les sciences. Je suis quelqu'un de curieux, ambitieux, rigoureux et autonome. J'envisage mon avenir professionnel en tant qu'ingénieur. En BUT Mesures Physiques, j'ai pu me spécialiser en MCPC (Matériaux et Contrôles Physico-Chimiques), c'est donc tout naturellement que ma poursuite d'études sera étroitement liée à ce domaine. Ce portfolio met en évidence les différentes expériences professionnelles que j'ai pu réaliser ainsi que mes différents diplômes. Il a pour objectif de détailler mes différentes compétences.</p>
                             </article>
 
-                        <!-- Expériences -->
-                            <article id="experiences">
+                        <article id="experiences">
                                 <h2 class="major">Expériences professionnelles</h2>
                                 <p class="slider-instruction">Faites glisser vers la droite &rarr;</p>
                                 
@@ -299,10 +298,10 @@
                                                 <p>Ensuite, j'ai eu l'occasion d'appliquer le protocole initial de l'étude IMPROVE III en mettant en place une campagne de mesures, effectuée par la plateforme d'anesthésie en bloc opératoire sur 20 patients sédatés. Pour traiter ce flux d'informations, j'ai développé un outil d'analyse automatisé sous Excel et Python permettant de calculer précisément la puissance mécanique subie par les tissus pulmonaires. Cette campagne m'a permis d'obtenir de nombreux résultats nécessaires au déploiement de l'étude.</p>
                                                 <p>En effet, l'analyse biostatistique a révélé que certains biais étaient préoccupants par rapport à une ventilation dite "protectrice". Grâce à mes travaux, j'ai pu mettre en évidence le fait que le protocole initial d'IMPROVE III était inadapté et potentiellement délétère à hauts volumes. Avec le professeur DE JONG (coordinatrice principale de l'étude), nous avons révisé ensemble le protocole pour le rendre le plus protecteur possible.</p>
                                                 
-                                                <!-- GALERIE PHOTOS CHU (Attribut 'alt' = la légende plein écran) -->
                                                 <div class="photo-gallery">
                                                     <img src="images/bloc_opé.jpeg" alt="Observation en direct au bloc opératoire" />
                                                     <img src="images/page_garde_rapport.jpeg" alt="Rapport de stage - Optimisation de la ventilation respiratoire" />
+                                                    <img src="images/application_sous_pyhton.jpeg" alt="Application développée sous python ; https://projet-meca-resp-x782v9x37658924865927476zz-8wi8n7jfcvza9slnkm.streamlit.app" />
                                                 </div>
                                             </div>
                                         </details>
@@ -317,7 +316,6 @@
                                             <div class="details-content">
                                                 <p>Création d'un module Arduino (prototype) pour contrôler l'orientation d'une parabole. Observation d'un ingénieur dans son travail quotidien : gestion des équipes, réunions de projets, résolutions de problèmes sur les satellites.</p>
                                                 
-                                                <!-- GALERIE PHOTOS CSU (Attribut 'alt' = la légende plein écran) -->
                                                 <div class="photo-gallery">
                                                     <img src="images/Centre_de_contrôle.JPG" alt="Centre de contrôle de mission spatiale du CSU" />
                                                     <img src="images/maquette_nanosat.JPG" alt="Maquette d'un Nanosatellite" />
@@ -341,8 +339,54 @@
                                 </div>
                             </article>
 
-                        <!-- Diplômes -->
-                            <article id="diplomes">
+                        <article id="competences">
+                                <h2 class="major">Compétences & Formation</h2>
+                                
+                                <p><strong>Le BUT Mesures Physiques</strong> est une formation scientifique et technologique particulièrement exigeante et polyvalente. Elle forme à la physique appliquée, la chimie, l'instrumentation et la métrologie.</p>
+                                <p>En choisissant la spécialité <strong>Matériaux et Contrôles Physico-Chimiques (MCPC)</strong>, je me suis spécialisé dans l'analyse, la caractérisation et le contrôle des propriétés de la matière, me permettant de faire le lien entre la théorie scientifique et son application en ingénierie et en laboratoire.</p>
+                                
+                                <p class="slider-instruction">Faites glisser vers la droite &rarr;</p>
+                                
+                                <div class="slider-container">
+                                    <div class="slider-item">
+                                        <h3>Instrumentation & Métrologie</h3>
+                                        <ul>
+                                            <li>Déploiement, paramétrage et étalonnage de chaînes de mesure (capteurs, conditionneurs).</li>
+                                            <li>Évaluation des incertitudes de mesure et application des normes métrologiques industrielles.</li>
+                                            <li>Traitement du signal, électronique analogique/numérique, optique et thermodynamique.</li>
+                                        </ul>
+                                    </div>
+                                    
+                                    <div class="slider-item">
+                                        <h3>Matériaux & Physico-Chimie</h3>
+                                        <ul>
+                                            <li>Caractérisation des matériaux avancés (Microscopie, Diffraction RX, Spectroscopie).</li>
+                                            <li>Réalisation d'essais mécaniques destructifs et non-destructifs (traction, dureté, résilience).</li>
+                                            <li>Thermodynamique appliquée, chimie des solutions et analyses physico-chimiques de pointe.</li>
+                                        </ul>
+                                    </div>
+                                    
+                                    <div class="slider-item">
+                                        <h3>Outils Numériques & Informatique</h3>
+                                        <ul>
+                                            <li><strong>Programmation :</strong> Solide maîtrise de Python (développement d'outils d'analyse) et programmation sur microcontrôleurs (Arduino, C++).</li>
+                                            <li><strong>Analyse de données :</strong> Traitement de grands volumes de données et automatisation sous Excel.</li>
+                                            <li><strong>Acquisition :</strong> LabVIEW pour l'interfaçage des instruments et l'automatisation des bancs de mesure.</li>
+                                        </ul>
+                                    </div>
+                                    
+                                    <div class="slider-item">
+                                        <h3>Savoir-être & Soft Skills</h3>
+                                        <ul>
+                                            <li><strong>Rigueur scientifique :</strong> Analyse critique des résultats expérimentaux et identification des biais.</li>
+                                            <li><strong>Communication :</strong> Rédaction professionnelle de rapports techniques et scientifiques.</li>
+                                            <li><strong>Adaptabilité :</strong> Gestion de projets techniques, capacité à travailler en autonomie et esprit d'équipe au sein d'un laboratoire ou d'un bloc opératoire.</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </article>
+
+                        <article id="diplomes">
                                 <h2 class="major">Diplômes</h2>
                                 <p class="slider-instruction">Faites glisser vers la droite &rarr;</p>
                                 
@@ -364,8 +408,7 @@
                                 </div>
                             </article>
 
-                        <!-- Contact -->
-                            <article id="contact">
+                        <article id="contact">
                                 <h2 class="major">Contact</h2>
                                 <form method="post" action="#">
                                     <div class="fields">
@@ -395,15 +438,13 @@
 
                     </div>
 
-                <!-- Footer -->
-                    <footer id="footer">
+                <footer id="footer">
                         <p class="copyright">&copy; Hugo Barriere. Design: <a href="https://html5up.net">HTML5 UP</a>.</p>
                     </footer>
 
             </div>
 
-        <!-- Mode Plein Écran (Lightbox) - NOUVELLE VERSION AVEC FLÈCHES -->
-            <div id="image-modal" class="modal-lightbox">
+        <div id="image-modal" class="modal-lightbox">
                 <span class="close-modal">&times;</span>
                 <span class="prev-modal">&#10094;</span>
                 <span class="next-modal">&#10095;</span>
@@ -411,17 +452,14 @@
                 <div id="modal-caption"></div>
             </div>
 
-        <!-- BG -->
-            <div id="bg"></div>
+        <div id="bg"></div>
 
-        <!-- Scripts -->
-            <script src="assets/js/jquery.min.js"></script>
+        <script src="assets/js/jquery.min.js"></script>
             <script src="assets/js/browser.min.js"></script>
             <script src="assets/js/breakpoints.min.js"></script>
             <script src="assets/js/util.js"></script>
             <script src="assets/js/main.js"></script>
             
-            <!-- Script personnalisé pour la galerie et la navigation -->
             <script>
                 document.addEventListener("DOMContentLoaded", function() {
                     var modal = document.getElementById("image-modal");
@@ -431,30 +469,49 @@
                     var prevBtn = document.getElementsByClassName("prev-modal")[0];
                     var nextBtn = document.getElementsByClassName("next-modal")[0];
 
-                    // Créer un tableau avec toutes les images de la galerie
-                    var imagesNodes = document.querySelectorAll(".photo-gallery img");
-                    var images = Array.from(imagesNodes);
+                    // Variables pour gérer uniquement la galerie active
+                    var currentGalleryImages = [];
                     var currentIndex = 0;
 
-                    // Fonction pour afficher l'image selon son index
+                    // Fonction d'affichage de la photo (boucle uniquement sur la galerie active)
                     function showImage(index) {
-                        if (index >= images.length) { currentIndex = 0; }
-                        else if (index < 0) { currentIndex = images.length - 1; }
+                        if (currentGalleryImages.length === 0) return;
+
+                        if (index >= currentGalleryImages.length) { currentIndex = 0; }
+                        else if (index < 0) { currentIndex = currentGalleryImages.length - 1; }
                         else { currentIndex = index; }
 
-                        var targetImg = images[currentIndex];
+                        var targetImg = currentGalleryImages[currentIndex];
                         modalImg.src = targetImg.src;
                         captionText.innerHTML = targetImg.alt;
+                        
+                        // Si on a qu'une seule photo, on cache les flèches pour faire plus propre
+                        if (currentGalleryImages.length <= 1) {
+                            prevBtn.style.display = "none";
+                            nextBtn.style.display = "none";
+                        } else {
+                            prevBtn.style.display = "block";
+                            nextBtn.style.display = "block";
+                        }
                     }
 
-                    // Ouvrir la modale au clic sur une image
-                    images.forEach(function(img, index) {
+                    // Cibler toutes les images cliquables
+                    var allImagesNodes = document.querySelectorAll(".photo-gallery img");
+
+                    allImagesNodes.forEach(function(img) {
                         img.addEventListener("click", function(e) {
                             e.stopPropagation(); // BLOQUE la fermeture de l'article
+
+                            // Isole la galerie dans laquelle on vient de cliquer
+                            var parentGallery = this.closest('.photo-gallery');
+                            currentGalleryImages = Array.from(parentGallery.querySelectorAll('img'));
+                            currentIndex = currentGalleryImages.indexOf(this);
+
+                            // Ouvre la modale
                             modal.style.display = "flex";
                             modal.style.flexDirection = "column";
                             modal.style.justifyContent = "center";
-                            showImage(index);
+                            showImage(currentIndex);
                         });
                     });
 
@@ -474,16 +531,15 @@
                         modal.style.display = "none";
                     }
 
-                    // Fermer la modale au clic sur le fond noir (sans fermer la page)
+                    // Fermer la modale au clic sur le fond noir
                     modal.onclick = function(e) {
-                        e.stopPropagation(); // BLOQUE la fermeture de l'article
-                        // Vérifie qu'on n'a pas cliqué sur la photo ou les boutons
+                        e.stopPropagation();
                         if (e.target !== modalImg && e.target !== prevBtn && e.target !== nextBtn) {
                             modal.style.display = "none";
                         }
                     }
 
-                    // Navigation au clavier (Flèches gauche/droite et Echap pour quitter)
+                    // Navigation au clavier (Flèches et Echap)
                     document.addEventListener('keydown', function(e) {
                         if (modal.style.display === "flex") {
                             if (e.key === "ArrowLeft") {
