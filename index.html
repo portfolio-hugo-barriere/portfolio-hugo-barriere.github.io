@@ -13,21 +13,19 @@
         <noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
         
         <style>
-            /* 1. Correction du menu (empêche le chevauchement) */
-            #header nav ul {
-                display: flex;
-                flex-wrap: wrap; /* Permet aux boutons de passer à la ligne si pas assez de place */
-                justify-content: center;
+            /* 1. Justification globale de tous les textes du contenu */
+            #main p, .details-content p {
+                text-align: justify;
             }
+
+            /* 2. Correction du menu (empêche le chevauchement sans casser le centrage vertical) */
             #header nav ul li a {
-                padding: 1rem 0.8rem !important; 
-                font-size: 0.7rem !important; 
+                font-size: 0.65rem !important;
                 letter-spacing: 0.1rem !important;
             }
             @media screen and (max-width: 480px) {
                 #header nav ul li a {
-                    padding: 0.8rem 0.5rem !important;
-                    font-size: 0.6rem !important;
+                    font-size: 0.55rem !important;
                 }
             }
 
@@ -51,7 +49,7 @@
                 font-weight: bold;
             }
             
-            /* 2. Système de carrousel pour les expériences */
+            /* 3. Système de carrousel (rétabli pour les diplômes et expériences) */
             .slider-container {
                 display: flex;
                 overflow-x: auto;
@@ -71,7 +69,6 @@
                 border: 1px solid rgba(255, 255, 255, 0.1);
                 padding: 30px;
                 border-radius: 4px;
-                /* On retire la limite de hauteur, le contenu cliquable gère la taille */
             }
             .slider-item h3 {
                 margin-bottom: 5px;
@@ -105,7 +102,7 @@
                 transition: color 0.2s ease;
             }
             summary:hover {
-                color: #f5a623; /* Petite couleur au survol pour montrer que c'est cliquable */
+                color: #f5a623;
             }
             .details-content {
                 margin-top: 15px;
@@ -114,40 +111,13 @@
                 padding-top: 10px;
                 border-top: 1px solid rgba(255, 255, 255, 0.1);
             }
-
-            /* 3. Grille personnalisée pour les diplômes (Séparation BUT / Bac+BIA) */
-            .diploma-grid {
-                display: grid;
-                grid-template-columns: 1fr 1fr; /* Deux colonnes égales */
-                gap: 20px;
-            }
-            .diploma-card {
-                background: rgba(255, 255, 255, 0.05);
-                border: 1px solid rgba(255, 255, 255, 0.1);
-                padding: 25px;
+            
+            /* Style pour les photos personnalisées dans les détails */
+            .custom-photo {
+                width: 100%;
                 border-radius: 4px;
-            }
-            .diploma-main {
-                grid-column: 1 / -1; /* Le BUT prend toute la largeur */
-            }
-            .diploma-secondary {
-                padding: 20px;
-                background: rgba(255, 255, 255, 0.02); /* Légèrement plus sombre */
-            }
-            .diploma-card h3 {
-                font-size: 1.1rem;
-                margin-bottom: 10px;
-                letter-spacing: 0.1rem;
-            }
-            .diploma-secondary h3 {
-                font-size: 0.9rem; /* Titre plus petit pour le Bac et BIA */
-            }
-
-            /* Adaptation de la grille sur téléphone */
-            @media screen and (max-width: 736px) {
-                .diploma-grid {
-                    grid-template-columns: 1fr; /* Tout passe sur 1 seule colonne sur mobile */
-                }
+                margin-top: 15px;
+                border: 1px solid rgba(255, 255, 255, 0.1);
             }
         </style>
     </head>
@@ -183,6 +153,10 @@
                         <!-- Profil -->
                             <article id="profil">
                                 <h2 class="major">Profil</h2>
+                                
+                                <!-- PHOTO DE PROFIL ICI : Remplace photo-profil.jpg par ton image -->
+                                <span class="image main"><img src="images/photo-profil.jpg" alt="Photo de Hugo Barriere" /></span>
+                                
                                 <p>Rédige ici ton profil. Explique qui tu es, tes ambitions, tes objectifs pour les années à venir (comme tes projets de poursuite d'études en école d'ingénieur) et ce qui te passionne dans ton domaine technique.</p>
                             </article>
 
@@ -196,14 +170,15 @@
                                         <h3>CHU DE MONTPELLIER (SAINT-ÉLOI)</h3>
                                         <p>Stage pratique de 10 semaines (2026) au sein de la plateforme d'anesthésie.</p>
                                         
-                                        <!-- Section déroulante -->
                                         <details>
                                             <summary>Voir les détails du projet</summary>
                                             <div class="details-content">
                                                 <p>La première partie de mon stage a consisté à mener une recherche bibliographique afin de cerner les principes physiques de la ventilation mécanique et à observer les activités du bloc opératoire, pour définir une approche de la problématique. J'ai assisté à des opérations au bloc opératoire, notamment des ablations de vésicule biliaire, des œsophagectomies par voie abdomino-thoracique et des transplantations hépatiques. J'ai également observé les procédures techniques, comme la mise sous ventilateur mécanique de patients souffrant de difficultés respiratoires aiguës et la préparation de patients pour le bloc opératoire.</p>
                                                 <p>Ensuite, j'ai eu l'occasion d'appliquer le protocole initial de l'étude IMPROVE III en mettant en place une campagne de mesures, effectuée par la plateforme d'anesthésie en bloc opératoire sur 20 patients sédatés. Pour traiter ce flux d'informations, j'ai développé un outil d'analyse automatisé sous Excel et Python permettant de calculer précisément la puissance mécanique subie par les tissus pulmonaires. Cette campagne m'a permis d'obtenir de nombreux résultats nécessaires au déploiement de l'étude.</p>
                                                 <p>En effet, l'analyse biostatistique a révélé que certains biais étaient préoccupants par rapport à une ventilation dite "protectrice". Grâce à mes travaux, j'ai pu mettre en évidence le fait que le protocole initial d'IMPROVE III était inadapté et potentiellement délétère à hauts volumes. Avec le professeur DE JONG (coordinatrice principale de l'étude), nous avons révisé ensemble le protocole pour le rendre le plus protecteur possible.</p>
-                                                <!-- Tu pourras ajouter tes <img src="images/ta-photo.jpg"> ici plus tard -->
+                                                
+                                                <!-- PHOTO STAGE CHU ICI : Remplace photo-chu.jpg par ton image -->
+                                                <img src="images/photo-chu.jpg" alt="Stage CHU" class="custom-photo" />
                                             </div>
                                         </details>
                                     </div>
@@ -216,6 +191,9 @@
                                             <summary>Voir les missions</summary>
                                             <div class="details-content">
                                                 <p>Création d'un module Arduino (prototype) pour contrôler l'orientation d'une parabole. Observation d'un ingénieur dans son travail quotidien : gestion des équipes, réunions de projets, résolutions de problèmes sur les satellites.</p>
+                                                
+                                                <!-- PHOTO STAGE CSU ICI : Remplace photo-csu.jpg par ton image -->
+                                                <img src="images/photo-csu.jpg" alt="Stage CSU" class="custom-photo" />
                                             </div>
                                         </details>
                                     </div>
@@ -238,21 +216,20 @@
                         <!-- Diplômes -->
                             <article id="diplomes">
                                 <h2 class="major">Diplômes</h2>
+                                <p class="slider-instruction">Faites glisser vers la droite &rarr;</p>
                                 
-                                <div class="diploma-grid">
-                                    <!-- Le BUT prend toute la largeur -->
-                                    <div class="diploma-card diploma-main">
+                                <div class="slider-container">
+                                    <div class="slider-item">
                                         <h3>BUT MESURES PHYSIQUES (2024-2027)</h3>
                                         <p>Spécialité Matériaux et Contrôles Physico-Chimiques à l'IUT Montpellier-Sète. Formation axée sur la métrologie, l'instrumentation et la caractérisation des matériaux.</p>
                                     </div>
                                     
-                                    <!-- Le Bac et le BIA sont côte à côte -->
-                                    <div class="diploma-card diploma-secondary">
+                                    <div class="slider-item">
                                         <h3>BACCALAURÉAT STI2D (2023)</h3>
                                         <p>Sciences et Technologies de l'Industrie et du Développement Durable. Formation pratique et technologique importante à mes yeux. Elle m'a permis de choisir mon parcours universitaire.</p>
                                     </div>
                                     
-                                    <div class="diploma-card diploma-secondary">
+                                    <div class="slider-item">
                                         <h3>BREVET D'INITIATION À L'AÉRONAUTIQUE (2023)</h3>
                                         <p>Obtention simultanée du BIA, attestant d'une première culture scientifique et technique dans le domaine de l'aéronautique.</p>
                                     </div>
