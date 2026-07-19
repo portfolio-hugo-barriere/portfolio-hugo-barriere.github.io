@@ -1,0 +1,611 @@
+<!DOCTYPE HTML>
+<!--
+    Dimension by HTML5 UP
+    html5up.net | @ajlkn
+    Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+    <head>
+        <title>Portfolio - Hugo BARRIERE</title>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+        <link rel="stylesheet" href="assets/css/main.css" />
+        <noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+        
+        <style>
+            /* 1. Justification globale de tous les textes du contenu */
+            #main p, .details-content p {
+                text-align: justify;
+            }
+
+            /* 2. Correction du menu */
+            #header nav ul li a {
+                font-size: 0.65rem !important;
+                letter-spacing: 0.1rem !important;
+            }
+            @media screen and (max-width: 480px) {
+                #header nav ul li a {
+                    font-size: 0.55rem !important;
+                }
+            }
+
+            /* --- TOP CONTROLS (Langue + CV) --- */
+            .top-controls {
+                position: absolute;
+                top: 2rem;
+                left: 2rem;
+                z-index: 1000;
+                display: flex;
+                align-items: center;
+                gap: 20px;
+                flex-wrap: wrap;
+            }
+            .language-toggle {
+                font-size: 0.8rem;
+                letter-spacing: 0.2rem;
+                text-transform: uppercase;
+            }
+            .language-toggle a {
+                border-bottom: none;
+                color: rgba(255, 255, 255, 0.5);
+                margin-right: 0.5rem;
+            }
+            .language-toggle a.active {
+                color: #ffffff;
+                font-weight: bold;
+            }
+            .cv-btn {
+                border: 1px solid rgba(255,255,255,0.3);
+                padding: 6px 12px;
+                border-radius: 4px;
+                font-size: 0.7rem;
+                letter-spacing: 0.1rem;
+                color: #ffffff !important;
+                text-decoration: none;
+                text-transform: uppercase;
+                transition: all 0.2s ease;
+                display: flex;
+                align-items: center;
+                gap: 8px;
+            }
+            .cv-btn:hover {
+                border-color: #f5a623;
+                background: rgba(255,255,255,0.1);
+                color: #f5a623 !important;
+            }
+            
+            /* 3. Système de carrousel (Slider) */
+            .slider-container {
+                display: flex;
+                overflow-x: auto;
+                scroll-snap-type: x mandatory;
+                gap: 20px;
+                padding-bottom: 20px;
+            }
+            
+            /* BARRE DE DÉFILEMENT PERSONNALISÉE */
+            .slider-container::-webkit-scrollbar {
+                display: block;
+                height: 6px;
+            }
+            .slider-container::-webkit-scrollbar-track {
+                background: rgba(255, 255, 255, 0.05);
+                border-radius: 10px;
+            }
+            .slider-container::-webkit-scrollbar-thumb {
+                background: rgba(255, 255, 255, 0.2);
+                border-radius: 10px;
+                cursor: pointer;
+            }
+            .slider-container::-webkit-scrollbar-thumb:hover {
+                background: rgba(255, 255, 255, 0.4);
+            }
+
+            .slider-item {
+                flex: 0 0 100%;
+                scroll-snap-align: start;
+                background: rgba(255, 255, 255, 0.05);
+                border: 1px solid rgba(255, 255, 255, 0.1);
+                padding: 30px;
+                border-radius: 4px;
+            }
+            .slider-item h3 {
+                margin-bottom: 5px;
+                font-size: 1.1rem;
+                letter-spacing: 0.1rem;
+            }
+            /* Style pour les Dates & Lieux */
+            .slider-item h4 {
+                font-size: 0.8rem;
+                color: #f5a623;
+                margin-bottom: 15px;
+                letter-spacing: 0.1rem;
+                text-transform: uppercase;
+            }
+            .slider-item ul {
+                margin-top: 15px;
+                padding-left: 20px;
+            }
+            .slider-item li {
+                font-size: 0.9rem;
+                line-height: 1.6;
+                margin-bottom: 10px;
+            }
+            .slider-instruction {
+                font-size: 0.8rem;
+                color: rgba(255, 255, 255, 0.5);
+                text-align: right;
+                margin-top: -15px;
+                margin-bottom: 15px;
+                font-style: italic;
+            }
+
+            /* Menu déroulant (cliquable) */
+            details {
+                margin-top: 15px;
+                background: rgba(0, 0, 0, 0.2);
+                padding: 10px 15px;
+                border-radius: 4px;
+                border-left: 3px solid #ffffff;
+            }
+            summary {
+                cursor: pointer;
+                font-weight: bold;
+                outline: none;
+                font-size: 0.8rem;
+                letter-spacing: 0.1rem;
+                text-transform: uppercase;
+                transition: color 0.2s ease;
+            }
+            summary:hover {
+                color: #f5a623;
+            }
+            .details-content {
+                margin-top: 15px;
+                font-size: 0.9rem;
+                line-height: 1.6;
+                padding-top: 10px;
+                border-top: 1px solid rgba(255, 255, 255, 0.1);
+            }
+            
+            /* --- STYLES POUR LES PHOTOS --- */
+            
+            .profile-photo {
+                max-width: 200px;
+                width: 45%;
+                float: left;
+                margin: 0 20px 10px 0;
+                border-radius: 10px;
+                box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+                border: 1px solid rgba(255, 255, 255, 0.1);
+            }
+            
+            #profil::after {
+                content: "";
+                clear: both;
+                display: table;
+            }
+
+            /* Galerie photo */
+            .photo-gallery {
+                display: flex;
+                gap: 15px;
+                justify-content: center;
+                flex-wrap: wrap;
+                margin-top: 20px;
+            }
+            .photo-gallery img {
+                flex: 1 1 calc(33.333% - 15px); 
+                min-width: 140px; 
+                max-height: 250px;
+                border-radius: 8px;
+                box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+                border: 1px solid rgba(255, 255, 255, 0.1);
+                object-fit: cover;
+                cursor: zoom-in;
+                transition: transform 0.3s ease;
+            }
+            .photo-gallery img:hover {
+                transform: scale(1.03);
+            }
+
+            /* --- STYLES DU MODE PLEIN ÉCRAN (LIGHTBOX) --- */
+            .modal-lightbox {
+                display: none; 
+                position: fixed;
+                z-index: 100000;
+                left: 0;
+                top: 0;
+                width: 100%;
+                height: 100%;
+                background-color: rgba(0,0,0,0.9);
+                backdrop-filter: blur(5px);
+            }
+            .modal-content-img {
+                margin: auto;
+                display: block;
+                max-width: 90%;
+                max-height: 75vh;
+                border-radius: 8px;
+                box-shadow: 0 0 20px rgba(0,0,0,0.8);
+                animation: zoom-in 0.3s ease;
+            }
+            #modal-caption {
+                margin: auto;
+                display: block;
+                width: 80%;
+                max-width: 700px;
+                text-align: center;
+                color: #ffffff;
+                padding: 15px 0;
+                font-size: 1.1rem;
+                letter-spacing: 0.1rem;
+                animation: zoom-in 0.3s ease;
+            }
+            @keyframes zoom-in {
+                from {transform: scale(0.8); opacity: 0;}
+                to {transform: scale(1); opacity: 1;}
+            }
+
+            .close-modal {
+                position: absolute;
+                top: 20px;
+                right: 30px;
+                color: #f1f1f1;
+                font-size: 40px;
+                font-weight: bold;
+                transition: 0.3s;
+                cursor: pointer;
+                z-index: 100001;
+            }
+            .close-modal:hover {
+                color: #f5a623;
+            }
+
+            .prev-modal, .next-modal {
+                cursor: pointer;
+                position: absolute;
+                top: 50%;
+                width: auto;
+                padding: 16px;
+                margin-top: -30px;
+                color: white;
+                font-weight: bold;
+                font-size: 40px;
+                transition: 0.3s ease;
+                border-radius: 0 3px 3px 0;
+                user-select: none;
+                z-index: 100001;
+                background-color: rgba(0,0,0,0.3);
+            }
+            .next-modal {
+                right: 0;
+                border-radius: 3px 0 0 3px;
+            }
+            .prev-modal {
+                left: 0;
+            }
+            .prev-modal:hover, .next-modal:hover {
+                background-color: rgba(0,0,0,0.8);
+                color: #f5a623;
+            }
+        </style>
+    </head>
+    <body class="is-preload">
+
+        <div id="wrapper">
+                
+                <!-- TOP CONTROLS : Langues + CV -->
+                <div class="top-controls">
+                    <div class="language-toggle">
+                        <a href="index.html">FR</a> | <a href="en.html" class="active">EN</a>
+                    </div>
+                    <a href="assets/cv-hugo-barriere.pdf" class="cv-btn" target="_blank" download>
+                        Download CV
+                    </a>
+                </div>
+
+                <header id="header">
+                        <div class="content">
+                            <div class="inner">
+                                <h1>Hugo BARRIERE's Portfolio</h1>
+                            </div>
+                        </div>
+                        <nav>
+                            <ul>
+                                <li><a href="#profil">Profile</a></li>
+                                <li><a href="#experiences">Experience</a></li>
+                                <li><a href="#competences">Skills</a></li>
+                                <li><a href="#diplomes">Degrees</a></li>
+                                <li><a href="#contact">Contact</a></li>
+                            </ul>
+                        </nav>
+                    </header>
+
+                <div id="main">
+
+                        <!-- PROFILE -->
+                        <article id="profil">
+                                <h2 class="major">Profile</h2>
+                                
+                                <img src="images/photo_profil.jpeg" alt="Hugo Barriere Portrait" class="profile-photo" />
+                                
+                                <p>Third-year student in a Bachelor of Technology (BUT) in Physical Measurements at the IUT of Montpellier, I have been passionate about science since childhood. I am a curious, ambitious, rigorous, and autonomous individual. My professional aspiration is to become an engineer. During my BUT, I specialized in Materials and Physico-Chemical Controls (MCPC), making it a natural choice to align my further studies with this technical field. This portfolio highlights my various professional experiences and academic background, detailing the practical skills I have acquired.</p>
+                        </article>
+
+                        <!-- EXPERIENCES -->
+                        <article id="experiences">
+                                <h2 class="major">Professional Experience</h2>
+                                <p class="slider-instruction">Swipe right to see more &rarr;</p>
+                                
+                                <div class="slider-container">
+                                    <div class="slider-item">
+                                        <h3>MONTPELLIER UNIVERSITY HOSPITAL (SAINT-ÉLOI)</h3>
+                                        <h4>Montpellier, France | 2026</h4>
+                                        <p>10-week practical internship within the anesthesia platform.</p>
+                                        
+                                        <details>
+                                            <summary>View project details</summary>
+                                            <div class="details-content">
+                                                <p>The first part of my internship involved conducting a literature review to understand the physical principles of mechanical ventilation and observing operating room activities to define a problem-solving approach. I attended surgeries, including gallbladder removals, abdomino-thoracic esophagectomies, and liver transplants. I also observed technical procedures, such as placing patients with acute respiratory distress on mechanical ventilators and preparing patients for surgery.</p>
+                                                <p>Subsequently, I had the opportunity to apply the initial protocol of the IMPROVE III study by setting up a measurement campaign, conducted by the anesthesia platform on 20 sedated patients. To process this data flow, I developed an automated analysis tool using Excel and Python to accurately calculate the mechanical power applied to lung tissues. This campaign yielded crucial results for the deployment of the study.</p>
+                                                <p>Indeed, biostatistical analysis revealed that certain biases were concerning regarding "protective" ventilation. Through my work, I demonstrated that the initial IMPROVE III protocol was inadequate and potentially harmful at high volumes. Together with Professor DE JONG (lead coordinator of the study), we revised the protocol to make it as protective as possible.</p>
+                                                
+                                                <div class="photo-gallery">
+                                                    <img src="images/bloc_opé.jpeg" alt="Live observation in the operating room" />
+                                                    <img src="images/page_garde_rapport.jpeg" alt="Internship Report - Optimization of respiratory ventilation" />
+                                                    <img src="images/application_sous_pyhton.jpeg" alt="Application developed in Python ; https://projet-meca-resp-x782v9x37658924865927476zz-8wi8n7jfcvza9slnkm.streamlit.app" />
+                                                </div>
+                                            </div>
+                                        </details>
+                                    </div>
+                                    
+                                    <div class="slider-item">
+                                        <h3>UNIVERSITY SPACE CENTER (CSU)</h3>
+                                        <h4>Montpellier, France | 2020 & 2022</h4>
+                                        <p>Observation internships.</p>
+                                        
+                                        <details>
+                                            <summary>View missions</summary>
+                                            <div class="details-content">
+                                                <p>Created an Arduino module (prototype) to control the orientation of a satellite dish. Shadowed an engineer in his daily work, gaining insights into team management, project meetings, and satellite problem-solving.</p>
+                                                
+                                                <div class="photo-gallery">
+                                                    <img src="images/Centre_de_contrôle.JPG" alt="CSU Space Mission Control Center" />
+                                                    <img src="images/maquette_nanosat.JPG" alt="Nanosatellite Model" />
+                                                </div>
+                                            </div>
+                                        </details>
+                                    </div>
+                                    
+                                    <div class="slider-item">
+                                        <h3>OTHER EXPERIENCES</h3>
+                                        
+                                        <p>Seasonal and student employment.</p>
+                                        
+                                        <details>
+                                            <summary>View details</summary>
+                                            <div class="details-content">
+                                                <p><strong>Burger King (Le Bosc) 2024:</strong> Versatile team member (teamwork, stress management under fast-paced conditions).</p>
+                                                <p><strong>Grape Harvest (Clos Aguilem) 2025:</strong> Seasonal agricultural worker (rigor, physical endurance, and strong adaptability).</p>
+                                            </div>
+                                        </details>
+                                    </div>
+                                </div>
+                        </article>
+
+                        <!-- SKILLS -->
+                        <article id="competences">
+                                <h2 class="major">Skills & Education</h2>
+                                
+                                <p><strong>The BUT in Physical Measurements</strong> is a highly demanding and versatile scientific and technological degree. It provides comprehensive training in applied physics, chemistry, instrumentation, and metrology.</p>
+                                <p>By choosing the <strong>Materials and Physico-Chemical Controls (MCPC)</strong> specialty, I focused on the analysis, characterization, and control of material properties.</p>
+                                
+                                <p class="slider-instruction">Swipe right to see more &rarr;</p>
+                                
+                                <div class="slider-container">
+                                    <div class="slider-item">
+                                        <h3>Instrumentation & Metrology</h3>
+                                        <ul>
+                                            <li>Deployment, configuration, and calibration of measurement chains (sensors, conditioners).</li>
+                                            <li>Evaluation of measurement uncertainties and application of current industrial metrology standards.</li>
+                                            <li>Signal processing, analog/digital electronics, optics, and thermodynamics.</li>
+                                        </ul>
+                                    </div>
+                                    
+                                    <div class="slider-item">
+                                        <h3>Materials & Physical Chemistry</h3>
+                                        <ul>
+                                            <li>Characterization of advanced materials (Microscopy, X-Ray Diffraction, Nano-indentation, Spectroscopy (IR, UV-VIS)).</li>
+                                            <li>Conducting destructive and non-destructive mechanical tests (tensile, hardness, impact).</li>
+                                            <li>Solution chemistry and chromatography.</li>
+                                        </ul>
+                                    </div>
+                                    
+                                    <div class="slider-item">
+                                        <h3>Digital & IT Tools</h3>
+                                        <ul>
+                                            <li><strong>Programming:</strong> Solid proficiency in Python (development of analysis tools) and microcontroller programming (Arduino, C++).</li>
+                                            <li><strong>Data Analysis:</strong> Processing large volumes of data and implementing automation using Excel.</li>
+                                            <li><strong>Acquisition:</strong> LabVIEW for instrument interfacing and measurement bench automation.</li>
+											<li><strong>Simulation:</strong> SolidWorks as a Computer-Aided Design (CAD) tool.</li>
+                                        </ul>
+                                    </div>
+                                    
+                                    <div class="slider-item">
+                                        <h3>Soft Skills</h3>
+                                        <ul>
+                                            <li><strong>Scientific Rigor:</strong> Critical analysis of experimental results and bias identification.</li>
+                                            <li><strong>Communication:</strong> Professional drafting of technical and scientific reports.</li>
+                                            <li><strong>Adaptability:</strong> Technical project management, ability to work autonomously, and strong team spirit in laboratories as well as in unexpected environments like an operating room.</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                        </article>
+
+                        <!-- DEGREES -->
+                        <article id="diplomes">
+                                <h2 class="major">Degrees</h2>
+                                <p class="slider-instruction">Swipe right to see more &rarr;</p>
+                                
+                                <div class="slider-container">
+                                    <div class="slider-item">
+                                        <h3>BACHELOR OF TECHNOLOGY (BUT) IN PHYSICAL MEASUREMENTS</h3>
+                                        <h4>IUT Montpellier-Sète, France | 2024 - 2027</h4>
+                                        <p>Specialty: Materials and Physico-Chemical Controls. Intensive training focused on metrology, instrumentation, and material characterization.</p>
+                                    </div>
+                                    
+                                    <div class="slider-item">
+                                        <h3>BACCALAUREATE STI2D</h3>
+                                        <h4>Lycée Joseph Vallot, Lodève, France | 2023</h4>
+                                        <p>Sciences and Technologies of Industry and Sustainable Development. A practical and technological education that was highly valuable to me and helped shape my university path.</p>
+                                    </div>
+                                    
+                                    <div class="slider-item">
+                                        <h3>AERONAUTICAL INITIATION CERTIFICATE (BIA)</h3>
+                                        <h4>Lycée Joseph Vallot, Lodève, France | 2023</h4>
+                                        <p>Obtained simultaneously with my Baccalaureate, certifying foundational scientific and technical knowledge in the field of aeronautics.</p>
+                                    </div>
+                                </div>
+                        </article>
+
+                        <!-- CONTACT -->
+                        <article id="contact">
+                                <h2 class="major">Contact</h2>
+                                <form method="post" action="#">
+                                    <div class="fields">
+                                        <div class="field half">
+                                            <label for="name">Name</label>
+                                            <input type="text" name="name" id="name" />
+                                        </div>
+                                        <div class="field half">
+                                            <label for="email">Email</label>
+                                            <input type="text" name="email" id="email" />
+                                        </div>
+                                        <div class="field">
+                                            <label for="message">Message</label>
+                                            <textarea name="message" id="message" rows="4"></textarea>
+                                        </div>
+                                    </div>
+                                    <ul class="actions">
+                                        <li><input type="submit" value="Send Message" class="primary" /></li>
+                                        <li><input type="reset" value="Clear" /></li>
+                                    </ul>
+                                </form>
+                                <ul class="icons">
+                                    <li><a href="#" class="icon brands fa-linkedin"><span class="label">LinkedIn</span></a></li>
+                                    <li><a href="#" class="icon brands fa-github"><span class="label">GitHub</span></a></li>
+                                </ul>
+                            </article>
+
+                    </div>
+
+                <footer id="footer">
+                        <p class="copyright">&copy; Hugo Barriere. Design: <a href="https://html5up.net">HTML5 UP</a>.</p>
+                    </footer>
+
+            </div>
+
+        <!-- LIGHTBOX -->
+        <div id="image-modal" class="modal-lightbox">
+                <span class="close-modal">&times;</span>
+                <span class="prev-modal">&#10094;</span>
+                <span class="next-modal">&#10095;</span>
+                <img class="modal-content-img" id="modal-img">
+                <div id="modal-caption"></div>
+            </div>
+
+        <div id="bg"></div>
+
+        <script src="assets/js/jquery.min.js"></script>
+            <script src="assets/js/browser.min.js"></script>
+            <script src="assets/js/breakpoints.min.js"></script>
+            <script src="assets/js/util.js"></script>
+            <script src="assets/js/main.js"></script>
+            
+            <script>
+                document.addEventListener("DOMContentLoaded", function() {
+                    var modal = document.getElementById("image-modal");
+                    var modalImg = document.getElementById("modal-img");
+                    var captionText = document.getElementById("modal-caption");
+                    var closeBtn = document.getElementsByClassName("close-modal")[0];
+                    var prevBtn = document.getElementsByClassName("prev-modal")[0];
+                    var nextBtn = document.getElementsByClassName("next-modal")[0];
+
+                    var currentGalleryImages = [];
+                    var currentIndex = 0;
+
+                    function showImage(index) {
+                        if (currentGalleryImages.length === 0) return;
+
+                        if (index >= currentGalleryImages.length) { currentIndex = 0; }
+                        else if (index < 0) { currentIndex = currentGalleryImages.length - 1; }
+                        else { currentIndex = index; }
+
+                        var targetImg = currentGalleryImages[currentIndex];
+                        modalImg.src = targetImg.src;
+                        captionText.innerHTML = targetImg.alt;
+                        
+                        if (currentGalleryImages.length <= 1) {
+                            prevBtn.style.display = "none";
+                            nextBtn.style.display = "none";
+                        } else {
+                            prevBtn.style.display = "block";
+                            nextBtn.style.display = "block";
+                        }
+                    }
+
+                    var allImagesNodes = document.querySelectorAll(".photo-gallery img");
+
+                    allImagesNodes.forEach(function(img) {
+                        img.addEventListener("click", function(e) {
+                            e.stopPropagation();
+
+                            var parentGallery = this.closest('.photo-gallery');
+                            currentGalleryImages = Array.from(parentGallery.querySelectorAll('img'));
+                            currentIndex = currentGalleryImages.indexOf(this);
+
+                            modal.style.display = "flex";
+                            modal.style.flexDirection = "column";
+                            modal.style.justifyContent = "center";
+                            showImage(currentIndex);
+                        });
+                    });
+
+                    prevBtn.onclick = function(e) {
+                        e.stopPropagation();
+                        showImage(currentIndex - 1);
+                    }
+                    nextBtn.onclick = function(e) {
+                        e.stopPropagation();
+                        showImage(currentIndex + 1);
+                    }
+
+                    closeBtn.onclick = function(e) {
+                        e.stopPropagation();
+                        modal.style.display = "none";
+                    }
+
+                    modal.onclick = function(e) {
+                        e.stopPropagation();
+                        if (e.target !== modalImg && e.target !== prevBtn && e.target !== nextBtn) {
+                            modal.style.display = "none";
+                        }
+                    }
+
+                    document.addEventListener('keydown', function(e) {
+                        if (modal.style.display === "flex") {
+                            if (e.key === "ArrowLeft") {
+                                showImage(currentIndex - 1);
+                            } else if (e.key === "ArrowRight") {
+                                showImage(currentIndex + 1);
+                            } else if (e.key === "Escape") {
+                                modal.style.display = "none";
+                            }
+                        }
+                    });
+                });
+            </script>
+
+    </body>
+</html>

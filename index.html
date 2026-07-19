@@ -1,19 +1,24 @@
 <!DOCTYPE HTML>
+<!--
+    Dimension by HTML5 UP
+    html5up.net | @ajlkn
+    Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
 <html>
     <head>
-        <title>Portfolio - Hugo BARRIERE</title>
+        <title>Portfolio d'Hugo BARRIERE</title>
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
         <link rel="stylesheet" href="assets/css/main.css" />
         <noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
         
         <style>
-            /* 1. Global Text Justification */
+            /* 1. Justification globale de tous les textes du contenu */
             #main p, .details-content p {
                 text-align: justify;
             }
 
-            /* 2. Menu correction (prevents overlap) */
+            /* 2. Correction du menu */
             #header nav ul li a {
                 font-size: 0.65rem !important;
                 letter-spacing: 0.1rem !important;
@@ -24,7 +29,7 @@
                 }
             }
 
-            /* --- TOP CONTROLS (Language + CV) --- */
+            /* --- TOP CONTROLS (Langue + CV) --- */
             .top-controls {
                 position: absolute;
                 top: 2rem;
@@ -69,17 +74,16 @@
                 color: #f5a623 !important;
             }
             
-            /* 3. Carousel System (Slider) */
+            /* 3. Système de carrousel (Slider) */
             .slider-container {
                 display: flex;
                 overflow-x: auto;
                 scroll-snap-type: x mandatory;
                 gap: 20px;
                 padding-bottom: 20px;
-                /* Re-enabled scrollbar with custom styling below */
             }
             
-            /* CUSTOM SCROLLBAR FOR SLIDERS */
+            /* BARRE DE DÉFILEMENT PERSONNALISÉE */
             .slider-container::-webkit-scrollbar {
                 display: block;
                 height: 6px;
@@ -110,7 +114,7 @@
                 font-size: 1.1rem;
                 letter-spacing: 0.1rem;
             }
-            /* Subtitle styling for Dates & Locations */
+            /* Style pour les Dates & Lieux */
             .slider-item h4 {
                 font-size: 0.8rem;
                 color: #f5a623;
@@ -136,7 +140,7 @@
                 font-style: italic;
             }
 
-            /* Dropdown details */
+            /* Menu déroulant (cliquable) */
             details {
                 margin-top: 15px;
                 background: rgba(0, 0, 0, 0.2);
@@ -164,7 +168,7 @@
                 border-top: 1px solid rgba(255, 255, 255, 0.1);
             }
             
-            /* --- PHOTOS STYLES --- */
+            /* --- STYLES POUR LES PHOTOS --- */
             
             .profile-photo {
                 max-width: 200px;
@@ -182,7 +186,7 @@
                 display: table;
             }
 
-            /* Photo Gallery (Fixed for 3 images) */
+            /* Galerie photo */
             .photo-gallery {
                 display: flex;
                 gap: 15px;
@@ -191,7 +195,6 @@
                 margin-top: 20px;
             }
             .photo-gallery img {
-                /* Dynamically adjusts: takes up 33% if 3 images, or 50% if 2 images */
                 flex: 1 1 calc(33.333% - 15px); 
                 min-width: 140px; 
                 max-height: 250px;
@@ -206,7 +209,7 @@
                 transform: scale(1.03);
             }
 
-            /* --- LIGHTBOX STYLES --- */
+            /* --- STYLES DU MODE PLEIN ÉCRAN (LIGHTBOX) --- */
             .modal-lightbox {
                 display: none; 
                 position: fixed;
@@ -292,27 +295,28 @@
 
         <div id="wrapper">
                 
+                <!-- TOP CONTROLS : Langues + CV -->
                 <div class="top-controls">
                     <div class="language-toggle">
-                        <a href="#">FR</a> | <a href="#" class="active">EN</a>
+                        <a href="index.html" class="active">FR</a> | <a href="en.html">EN</a>
                     </div>
                     <a href="assets/cv-hugo-barriere.pdf" class="cv-btn" target="_blank" download>
-                        Download CV
+                        Télécharger CV
                     </a>
                 </div>
 
                 <header id="header">
                         <div class="content">
                             <div class="inner">
-                                <h1>Hugo BARRIERE's Portfolio</h1>
+                                <h1>Portfolio d'Hugo BARRIERE</h1>
                             </div>
                         </div>
                         <nav>
                             <ul>
-                                <li><a href="#profil">Profile</a></li>
-                                <li><a href="#experiences">Experience</a></li>
-                                <li><a href="#competences">Skills</a></li>
-                                <li><a href="#diplomes">Degrees</a></li>
+                                <li><a href="#profil">Profil</a></li>
+                                <li><a href="#experiences">Expériences</a></li>
+                                <li><a href="#competences">Compétences</a></li>
+                                <li><a href="#diplomes">Diplômes</a></li>
                                 <li><a href="#contact">Contact</a></li>
                             </ul>
                         </nav>
@@ -320,153 +324,158 @@
 
                 <div id="main">
 
+                        <!-- PROFIL -->
                         <article id="profil">
-                                <h2 class="major">Profile</h2>
+                                <h2 class="major">Profil</h2>
                                 
-                                <img src="images/photo_profil.jpeg" alt="Hugo Barriere Portrait" class="profile-photo" />
+                                <img src="images/photo_profil.jpeg" alt="Photo de Hugo Barriere" class="profile-photo" />
                                 
-                                <p>Third-year student in a Bachelor of Technology (BUT) in Physical Measurements at the IUT of Montpellier, I have been passionate about science since childhood. I am a curious, ambitious, rigorous, and autonomous individual. My professional aspiration is to become an engineer. During my BUT, I specialized in Materials and Physico-Chemical Controls (MCPC), making it a natural choice to align my further studies with this technical field. This portfolio highlights my various professional experiences and academic background, detailing the practical skills I have acquired.</p>
+                                <p>Étudiant de troisième année en BUT Mesures Physiques à l'IUT de Montpellier, je suis passionné depuis petit par les sciences. Je suis quelqu'un de curieux, ambitieux, rigoureux et autonome. J'envisage mon avenir professionnel en tant qu'ingénieur. En BUT Mesures Physiques, j'ai pu me spécialiser en MCPC (Matériaux et Contrôles Physico-Chimiques), c'est donc tout naturellement que ma poursuite d'études sera étroitement liée à ce domaine. Ce portfolio met en évidence les différentes expériences professionnelles que j'ai pu réaliser ainsi que mes différents diplômes. Il a pour objectif de détailler mes différentes compétences.</p>
                         </article>
 
+                        <!-- EXPERIENCES -->
                         <article id="experiences">
-                                <h2 class="major">Professional Experience</h2>
-                                <p class="slider-instruction">Swipe right to see more &rarr;</p>
+                                <h2 class="major">Expériences professionnelles</h2>
+                                <p class="slider-instruction">Faites glisser vers la droite &rarr;</p>
                                 
                                 <div class="slider-container">
                                     <div class="slider-item">
-                                        <h3>MONTPELLIER UNIVERSITY HOSPITAL (SAINT-ÉLOI)</h3>
-                                        <h4>Location: Montpellier, France | 2026</h4>
-                                        <p>10-week practical internship within the anesthesia platform.</p>
+                                        <h3>CHU DE MONTPELLIER (SAINT-ÉLOI)</h3>
+                                        <h4>Montpellier, France | 2026</h4>
+                                        <p>Stage pratique de 10 semaines au sein de la plateforme d'anesthésie.</p>
                                         
                                         <details>
-                                            <summary>View project details</summary>
+                                            <summary>Voir les détails du projet</summary>
                                             <div class="details-content">
-                                                <p>The first part of my internship involved conducting a literature review to understand the physical principles of mechanical ventilation and observing operating room activities to define a problem-solving approach. I attended surgeries, including gallbladder removals, abdomino-thoracic esophagectomies, and liver transplants. I also observed technical procedures, such as placing patients with acute respiratory distress on mechanical ventilators and preparing patients for surgery.</p>
-                                                <p>Subsequently, I had the opportunity to apply the initial protocol of the IMPROVE III study by setting up a measurement campaign, conducted by the anesthesia platform on 20 sedated patients. To process this data flow, I developed an automated analysis tool using Excel and Python to accurately calculate the mechanical power applied to lung tissues. This campaign yielded crucial results for the deployment of the study.</p>
-                                                <p>Indeed, biostatistical analysis revealed that certain biases were concerning regarding "protective" ventilation. Through my work, I demonstrated that the initial IMPROVE III protocol was inadequate and potentially harmful at high volumes. Together with Professor DE JONG (lead coordinator of the study), we revised the protocol to make it as protective as possible.</p>
+                                                <p>La première partie de mon stage a consisté à mener une recherche bibliographique afin de cerner les principes physiques de la ventilation mécanique et à observer les activités du bloc opératoire, pour définir une approche de la problématique. J'ai assisté à des opérations au bloc opératoire, notamment des ablations de vésicule biliaire, des œsophagectomies par voie abdomino-thoracique et des transplantations hépatiques. J'ai également observé les procédures techniques, comme la mise sous ventilateur mécanique de patients souffrant de difficultés respiratoires aiguës et la préparation de patients pour le bloc opératoire.</p>
+                                                <p>Ensuite, j'ai eu l'occasion d'appliquer le protocole initial de l'étude IMPROVE III en mettant en place une campagne de mesures, effectuée par la plateforme d'anesthésie en bloc opératoire sur 20 patients sédatés. Pour traiter ce flux d'informations, j'ai développé un outil d'analyse automatisé sous Excel et Python permettant de calculer précisément la puissance mécanique subie par les tissus pulmonaires. Cette campagne m'a permis d'obtenir de nombreux résultats nécessaires au déploiement de l'étude.</p>
+                                                <p>En effet, l'analyse biostatistique a révélé que certains biais étaient préoccupants par rapport à une ventilation dite "protectrice". Grâce à mes travaux, j'ai pu mettre en évidence le fait que le protocole initial d'IMPROVE III était inadapté et potentiellement délétère à hauts volumes. Avec le professeur DE JONG (coordinatrice principale de l'étude), nous avons révisé ensemble le protocole pour le rendre le plus protecteur possible.</p>
                                                 
                                                 <div class="photo-gallery">
-                                                    <img src="images/bloc_opé.jpeg" alt="Live observation in the operating room" />
-                                                    <img src="images/page_garde_rapport.jpeg" alt="Internship Report - Optimization of respiratory ventilation" />
-                                                    <img src="images/application_sous_pyhton.jpeg" alt="Application developed in Python (available on Streamlit)" />
+                                                    <img src="images/bloc_opé.jpeg" alt="Observation en direct au bloc opératoire" />
+                                                    <img src="images/page_garde_rapport.jpeg" alt="Rapport de stage - Optimisation de la ventilation respiratoire" />
+                                                    <img src="images/application_sous_pyhton.jpeg" alt="Application développée sous python ; https://projet-meca-resp-x782v9x37658924865927476zz-8wi8n7jfcvza9slnkm.streamlit.app" />
                                                 </div>
                                             </div>
                                         </details>
                                     </div>
                                     
                                     <div class="slider-item">
-                                        <h3>UNIVERSITY SPACE CENTER (CSU)</h3>
-                                        <h4>Location: Montpellier, France | 2020 & 2022</h4>
-                                        <p>Observation internships.</p>
+                                        <h3>CSU DE MONTPELLIER</h3>
+                                        <h4>Montpellier, France | 2020 & 2022</h4>
+                                        <p>Stages d'observation.</p>
                                         
                                         <details>
-                                            <summary>View missions</summary>
+                                            <summary>Voir les missions</summary>
                                             <div class="details-content">
-                                                <p>Created an Arduino module (prototype) to control the orientation of a satellite dish. Shadowed an engineer in his daily work, gaining insights into team management, project meetings, and satellite problem-solving.</p>
+                                                <p>Création d'un module Arduino (prototype) pour contrôler l'orientation d'une parabole. Observation d'un ingénieur dans son travail quotidien : gestion des équipes, réunions de projets, résolutions de problèmes sur les satellites.</p>
                                                 
                                                 <div class="photo-gallery">
-                                                    <img src="images/Centre_de_contrôle.JPG" alt="CSU Space Mission Control Center" />
-                                                    <img src="images/maquette_nanosat.JPG" alt="Nanosatellite Model" />
+                                                    <img src="images/Centre_de_contrôle.JPG" alt="Centre de contrôle de mission spatiale du CSU" />
+                                                    <img src="images/maquette_nanosat.JPG" alt="Maquette d'un Nanosatellite" />
                                                 </div>
                                             </div>
                                         </details>
                                     </div>
                                     
                                     <div class="slider-item">
-                                        <h3>OTHER EXPERIENCES</h3>
-                                        <h4>Location: Occitanie, France</h4>
-                                        <p>Seasonal and student employment.</p>
+                                        <h3>AUTRES EXPÉRIENCES</h3>
+                                
+                                        <p>Emplois saisonniers et étudiants.</p>
                                         
                                         <details>
-                                            <summary>View details</summary>
+                                            <summary>Voir le détail</summary>
                                             <div class="details-content">
-                                                <p><strong>Burger King :</strong> Versatile team member (teamwork, stress management under fast-paced conditions).</p>
-                                                <p><strong>Grape Harvest :</strong> Seasonal agricultural worker (rigor, physical endurance, and strong adaptability).</p>
+                                                <p><strong>Burger King (Le Bosc) 2024 :</strong> Équipier polyvalent (travail en équipe, gestion du stress).</p>
+                                                <p><strong>Vendanges (Clos Aguilem) 2025 :</strong> Travail saisonnier (rigueur, endurance, capacité d'adaptation).</p>
                                             </div>
                                         </details>
                                     </div>
                                 </div>
                         </article>
 
+                        <!-- COMPETENCES -->
                         <article id="competences">
-                                <h2 class="major">Skills & Education</h2>
+                                <h2 class="major">Compétences & Formation</h2>
                                 
-                                <p><strong>The BUT in Physical Measurements</strong> is a highly demanding and versatile scientific and technological degree. It provides comprehensive training in applied physics, chemistry, instrumentation, and metrology.</p>
-                                <p>By choosing the <strong>Materials and Physico-Chemical Controls (MCPC)</strong> specialty, I focused on the analysis, characterization, and control of material properties.</p>
+                                <p><strong>Le BUT Mesures Physiques</strong> est une formation scientifique et technologique particulièrement exigeante et polyvalente. Elle forme à la physique appliquée, la chimie, l'instrumentation et la métrologie.</p>
+                                <p>En choisissant la spécialité <strong>Matériaux et Contrôles Physico-Chimiques (MCPC)</strong>, je me suis spécialisé dans l'analyse, la caractérisation et le contrôle des propriétés des matériaux.</p>
                                 
-                                <p class="slider-instruction">Swipe right to see more &rarr;</p>
+                                <p class="slider-instruction">Faites glisser vers la droite &rarr;</p>
                                 
                                 <div class="slider-container">
                                     <div class="slider-item">
-                                        <h3>Instrumentation & Metrology</h3>
+                                        <h3>Instrumentation & Métrologie</h3>
                                         <ul>
-                                            <li>Deployment, configuration, and calibration of measurement chains (sensors, conditioners).</li>
-                                            <li>Evaluation of measurement uncertainties and application of current industrial metrology standards.</li>
-                                            <li>Signal processing, analog/digital electronics, optics, and thermodynamics.</li>
+                                            <li>Déploiement, paramétrage et étalonnage de chaînes de mesure (capteurs, conditionneurs).</li>
+                                            <li>Évaluation des incertitudes de mesure et application des normes métrologiques industrielles en vigueurs.</li>
+                                            <li>Traitement du signal, électronique analogique/numérique, optique et thermodynamique.</li>
                                         </ul>
                                     </div>
                                     
                                     <div class="slider-item">
-                                        <h3>Materials & Physical Chemistry</h3>
+                                        <h3>Matériaux & Physico-Chimie</h3>
                                         <ul>
-                                            <li>Characterization of advanced materials (Microscopy, X-Ray Diffraction, Nano-indentation, Spectroscopy (IR, UV-VIS)).</li>
-                                            <li>Conducting destructive and non-destructive mechanical tests (tensile, hardness, impact).</li>
-                                            <li>Solution chemistry and chromatography.</li>
+                                            <li>Caractérisation des matériaux avancés (Microscopie, Diffraction RX, Nano-indentation, Spectroscopie (IR, UV-VIS)).</li>
+                                            <li>Réalisation d'essais mécaniques destructifs et non-destructifs (traction, dureté, résilience).</li>
+                                            <li>Chimie des solutions et chromatographie.</li>
                                         </ul>
                                     </div>
                                     
                                     <div class="slider-item">
-                                        <h3>Digital & IT Tools</h3>
+                                        <h3>Outils Numériques & Informatique</h3>
                                         <ul>
-                                            <li><strong>Programming:</strong> Solid proficiency in Python (development of analysis tools) and microcontroller programming (Arduino, C++).</li>
-                                            <li><strong>Data Analysis:</strong> Processing large volumes of data and implementing automation using Excel.</li>
-                                            <li><strong>Acquisition:</strong> LabVIEW for instrument interfacing and measurement bench automation.</li>
-                                            <li><strong>Simulation:</strong> SolidWorks as a Computer-Aided Design (CAD) tool.</li>
+                                            <li><strong>Programmation :</strong> Solide maîtrise de Python (développement d'outils d'analyse) et programmation sur microcontrôleurs (Arduino, C++).</li>
+                                            <li><strong>Analyse de données :</strong> Traitement de grands volumes de données et automatisation sous Excel.</li>
+                                            <li><strong>Acquisition :</strong> LabVIEW pour l'interfaçage des instruments et l'automatisation des bancs de mesure.</li>
+											<li><strong>Simulation :</strong> SolidWorks comme outil de CAO (Conception assistée par ordinateur).</li>
                                         </ul>
                                     </div>
                                     
                                     <div class="slider-item">
-                                        <h3>Soft Skills</h3>
+                                        <h3>Savoir-être & Soft Skills</h3>
                                         <ul>
-                                            <li><strong>Scientific Rigor:</strong> Critical analysis of experimental results and bias identification.</li>
-                                            <li><strong>Communication:</strong> Professional drafting of technical and scientific reports.</li>
-                                            <li><strong>Adaptability:</strong> Technical project management, ability to work autonomously, and strong team spirit in laboratories as well as in unexpected environments like an operating room.</li>
+                                            <li><strong>Rigueur scientifique :</strong> Analyse critique des résultats expérimentaux et identification des biais.</li>
+                                            <li><strong>Communication :</strong> Rédaction professionnelle de rapports techniques et scientifiques.</li>
+                                            <li><strong>Adaptabilité :</strong> Gestion de projets techniques, capacité à travailler en autonomie et esprit d'équipe au sein d'un laboratoire mais également dans un contexte plus inattendu comme un bloc opératoire.</li>
                                         </ul>
                                     </div>
                                 </div>
                         </article>
 
+                        <!-- DIPLOMES -->
                         <article id="diplomes">
-                                <h2 class="major">Degrees</h2>
-                                <p class="slider-instruction">Swipe right to see more &rarr;</p>
+                                <h2 class="major">Diplômes</h2>
+                                <p class="slider-instruction">Faites glisser vers la droite &rarr;</p>
                                 
                                 <div class="slider-container">
                                     <div class="slider-item">
-                                        <h3>BACHELOR OF TECHNOLOGY (BUT) IN PHYSICAL MEASUREMENTS</h3>
-                                        <h4>Location: IUT Montpellier-Sète, France | 2024 - 2027</h4>
-                                        <p>Specialty: Materials and Physico-Chemical Controls. Intensive training focused on metrology, instrumentation, and material characterization.</p>
+                                        <h3>BUT MESURES PHYSIQUES</h3>
+                                        <h4>IUT Montpellier-Sète, France | 2024 - 2027</h4>
+                                        <p>Spécialité Matériaux et Contrôles Physico-Chimiques. Formation axée sur la métrologie, l'instrumentation et la caractérisation des matériaux.</p>
                                     </div>
                                     
                                     <div class="slider-item">
-                                        <h3>BACCALAUREATE STI2D</h3>
-                                        <h4>Location: Montpellier, France | 2023</h4>
-                                        <p>Sciences and Technologies of Industry and Sustainable Development. A practical and technological education that was highly valuable to me and helped shape my university path.</p>
+                                        <h3>BACCALAURÉAT STI2D</h3>
+                                        <h4>Lycée Joseph Vallot, Lodève, France | 2023</h4>
+                                        <p>Sciences et Technologies de l'Industrie et du Développement Durable. Formation pratique et technologique importante à mes yeux. Elle m'a permis de choisir mon parcours universitaire.</p>
                                     </div>
                                     
                                     <div class="slider-item">
-                                        <h3>AERONAUTICAL INITIATION CERTIFICATE (BIA)</h3>
-                                        <h4>Location: Montpellier, France | 2023</h4>
-                                        <p>Obtained simultaneously with my Baccalaureate, certifying foundational scientific and technical knowledge in the field of aeronautics.</p>
+                                        <h3>BREVET D'INITIATION À L'AÉRONAUTIQUE (BIA)</h3>
+                                        <h4>Lycée Joseph Vallot, Lodève, France | 2023</h4>
+                                        <p>Obtention simultanée du BIA, attestant d'une première culture scientifique et technique dans le domaine de l'aéronautique.</p>
                                     </div>
                                 </div>
                         </article>
 
+                        <!-- CONTACT -->
                         <article id="contact">
                                 <h2 class="major">Contact</h2>
                                 <form method="post" action="#">
                                     <div class="fields">
                                         <div class="field half">
-                                            <label for="name">Name</label>
+                                            <label for="name">Nom</label>
                                             <input type="text" name="name" id="name" />
                                         </div>
                                         <div class="field half">
@@ -479,8 +488,8 @@
                                         </div>
                                     </div>
                                     <ul class="actions">
-                                        <li><input type="submit" value="Send Message" class="primary" /></li>
-                                        <li><input type="reset" value="Clear" /></li>
+                                        <li><input type="submit" value="Envoyer" class="primary" /></li>
+                                        <li><input type="reset" value="Effacer" /></li>
                                     </ul>
                                 </form>
                                 <ul class="icons">
@@ -497,6 +506,7 @@
 
             </div>
 
+        <!-- LIGHTBOX -->
         <div id="image-modal" class="modal-lightbox">
                 <span class="close-modal">&times;</span>
                 <span class="prev-modal">&#10094;</span>
