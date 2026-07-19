@@ -148,10 +148,10 @@
                 border: 1px solid rgba(255, 255, 255, 0.1);
                 object-fit: cover;
                 cursor: zoom-in; /* Curseur loupe */
-                transition: transform 0.3s ease; /* Animation fluide */
+                transition: transform 0.3s ease;
             }
             .photo-gallery img:hover {
-                transform: scale(1.03); /* Petit effet de zoom au survol */
+                transform: scale(1.03);
             }
             @media screen and (max-width: 600px) {
                 .photo-gallery img {
@@ -161,23 +161,21 @@
 
             /* --- STYLES DU MODE PLEIN ÉCRAN (LIGHTBOX) --- */
             .modal-lightbox {
-                display: none; /* Caché par défaut */
+                display: none; 
                 position: fixed;
-                z-index: 10000; /* Au-dessus de tout le reste */
-                padding-top: 60px;
+                z-index: 100000; /* Au-dessus de tout le reste */
                 left: 0;
                 top: 0;
                 width: 100%;
                 height: 100%;
-                overflow: auto;
-                background-color: rgba(0,0,0,0.9); /* Fond noir */
-                backdrop-filter: blur(5px); /* Effet flou sur le fond */
+                background-color: rgba(0,0,0,0.9);
+                backdrop-filter: blur(5px);
             }
             .modal-content-img {
                 margin: auto;
                 display: block;
                 max-width: 90%;
-                max-height: 80vh;
+                max-height: 75vh; /* Laisse de la place pour la légende */
                 border-radius: 8px;
                 box-shadow: 0 0 20px rgba(0,0,0,0.8);
                 animation: zoom-in 0.3s ease;
@@ -198,21 +196,50 @@
                 from {transform: scale(0.8); opacity: 0;}
                 to {transform: scale(1); opacity: 1;}
             }
+
+            /* Croix pour fermer */
             .close-modal {
                 position: absolute;
-                top: 30px;
-                right: 40px;
+                top: 20px;
+                right: 30px;
                 color: #f1f1f1;
                 font-size: 40px;
                 font-weight: bold;
                 transition: 0.3s;
                 cursor: pointer;
+                z-index: 100001;
             }
-            .close-modal:hover,
-            .close-modal:focus {
-                color: #f5a623; /* Devient orange au survol */
-                text-decoration: none;
+            .close-modal:hover {
+                color: #f5a623;
+            }
+
+            /* Flèches de navigation */
+            .prev-modal, .next-modal {
                 cursor: pointer;
+                position: absolute;
+                top: 50%;
+                width: auto;
+                padding: 16px;
+                margin-top: -30px;
+                color: white;
+                font-weight: bold;
+                font-size: 40px;
+                transition: 0.3s ease;
+                border-radius: 0 3px 3px 0;
+                user-select: none;
+                z-index: 100001;
+                background-color: rgba(0,0,0,0.3);
+            }
+            .next-modal {
+                right: 0;
+                border-radius: 3px 0 0 3px;
+            }
+            .prev-modal {
+                left: 0;
+            }
+            .prev-modal:hover, .next-modal:hover {
+                background-color: rgba(0,0,0,0.8);
+                color: #f5a623;
             }
         </style>
     </head>
@@ -249,6 +276,7 @@
                             <article id="profil">
                                 <h2 class="major">Profil</h2>
                                 
+                                <!-- PHOTO DE PROFIL -->
                                 <img src="images/photo_profil.jpeg" alt="Photo de Hugo Barriere" class="profile-photo" />
                                 
                                 <p>Étudiant de troisième année en BUT Mesures Physiques à l'IUT de Montpellier, je suis passionné depuis petit par les sciences. Je suis quelqu'un de curieux, ambitieux, rigoureux et autonome. J'envisage mon avenir professionnel en tant qu'ingénieur. En BUT Mesures Physiques, j'ai pu me spécialiser en MCPC (Matériaux et Contrôles Physico-Chimiques), c'est donc tout naturellement que ma poursuite d'études sera étroitement liée à ce domaine. Ce portfolio met en évidence les différentes expériences professionnelles que j'ai pu réaliser ainsi que mes différents diplômes. Il a pour objectif de détailler mes différentes compétences.</p>
@@ -275,7 +303,6 @@
                                                 <div class="photo-gallery">
                                                     <img src="images/bloc_opé.jpeg" alt="Observation en direct au bloc opératoire" />
                                                     <img src="images/page_garde_rapport.jpeg" alt="Rapport de stage - Optimisation de la ventilation respiratoire" />
-													<img src="application_sous_python.jpeg" alt="Application construite sous python. Elle ma permit de visualiser différents biais/phénomènes de me résultats" />
                                                 </div>
                                             </div>
                                         </details>
@@ -375,9 +402,11 @@
 
             </div>
 
-        <!-- Mode Plein Écran (Lightbox) - Ne pas modifier -->
+        <!-- Mode Plein Écran (Lightbox) - NOUVELLE VERSION AVEC FLÈCHES -->
             <div id="image-modal" class="modal-lightbox">
                 <span class="close-modal">&times;</span>
+                <span class="prev-modal">&#10094;</span>
+                <span class="next-modal">&#10095;</span>
                 <img class="modal-content-img" id="modal-img">
                 <div id="modal-caption"></div>
             </div>
@@ -392,39 +421,80 @@
             <script src="assets/js/util.js"></script>
             <script src="assets/js/main.js"></script>
             
-            <!-- Script personnalisé pour le mode plein écran -->
+            <!-- Script personnalisé pour la galerie et la navigation -->
             <script>
                 document.addEventListener("DOMContentLoaded", function() {
                     var modal = document.getElementById("image-modal");
                     var modalImg = document.getElementById("modal-img");
                     var captionText = document.getElementById("modal-caption");
                     var closeBtn = document.getElementsByClassName("close-modal")[0];
+                    var prevBtn = document.getElementsByClassName("prev-modal")[0];
+                    var nextBtn = document.getElementsByClassName("next-modal")[0];
 
-                    // Récupérer uniquement les images des galeries d'expériences (pas le profil)
-                    var images = document.querySelectorAll(".photo-gallery img");
+                    // Créer un tableau avec toutes les images de la galerie
+                    var imagesNodes = document.querySelectorAll(".photo-gallery img");
+                    var images = Array.from(imagesNodes);
+                    var currentIndex = 0;
 
-                    images.forEach(function(img) {
-                        img.addEventListener("click", function() {
+                    // Fonction pour afficher l'image selon son index
+                    function showImage(index) {
+                        if (index >= images.length) { currentIndex = 0; }
+                        else if (index < 0) { currentIndex = images.length - 1; }
+                        else { currentIndex = index; }
+
+                        var targetImg = images[currentIndex];
+                        modalImg.src = targetImg.src;
+                        captionText.innerHTML = targetImg.alt;
+                    }
+
+                    // Ouvrir la modale au clic sur une image
+                    images.forEach(function(img, index) {
+                        img.addEventListener("click", function(e) {
+                            e.stopPropagation(); // BLOQUE la fermeture de l'article
                             modal.style.display = "flex";
                             modal.style.flexDirection = "column";
                             modal.style.justifyContent = "center";
-                            modalImg.src = this.src;
-                            // Utilise l'attribut "alt" de la photo pour créer la légende
-                            captionText.innerHTML = this.alt; 
+                            showImage(index);
                         });
                     });
 
+                    // Navigation via les flèches cliquables
+                    prevBtn.onclick = function(e) {
+                        e.stopPropagation();
+                        showImage(currentIndex - 1);
+                    }
+                    nextBtn.onclick = function(e) {
+                        e.stopPropagation();
+                        showImage(currentIndex + 1);
+                    }
+
                     // Fermer la modale au clic sur la croix
-                    closeBtn.onclick = function() {
+                    closeBtn.onclick = function(e) {
+                        e.stopPropagation();
                         modal.style.display = "none";
                     }
 
-                    // Fermer la modale au clic sur le fond noir
+                    // Fermer la modale au clic sur le fond noir (sans fermer la page)
                     modal.onclick = function(e) {
-                        if (e.target !== modalImg) {
+                        e.stopPropagation(); // BLOQUE la fermeture de l'article
+                        // Vérifie qu'on n'a pas cliqué sur la photo ou les boutons
+                        if (e.target !== modalImg && e.target !== prevBtn && e.target !== nextBtn) {
                             modal.style.display = "none";
                         }
                     }
+
+                    // Navigation au clavier (Flèches gauche/droite et Echap pour quitter)
+                    document.addEventListener('keydown', function(e) {
+                        if (modal.style.display === "flex") {
+                            if (e.key === "ArrowLeft") {
+                                showImage(currentIndex - 1);
+                            } else if (e.key === "ArrowRight") {
+                                showImage(currentIndex + 1);
+                            } else if (e.key === "Escape") {
+                                modal.style.display = "none";
+                            }
+                        }
+                    });
                 });
             </script>
 
