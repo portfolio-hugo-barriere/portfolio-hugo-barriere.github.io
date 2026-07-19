@@ -141,17 +141,78 @@
                 margin-top: 20px;
             }
             .photo-gallery img {
-                max-width: 47%; /* Permet d'avoir 2 images côte à côte */
+                max-width: 47%;
                 width: 100%;
                 border-radius: 8px;
                 box-shadow: 0 5px 15px rgba(0,0,0,0.3);
                 border: 1px solid rgba(255, 255, 255, 0.1);
-                object-fit: cover; /* Assure que les images ne soient pas déformées */
+                object-fit: cover;
+                cursor: zoom-in; /* Curseur loupe */
+                transition: transform 0.3s ease; /* Animation fluide */
+            }
+            .photo-gallery img:hover {
+                transform: scale(1.03); /* Petit effet de zoom au survol */
             }
             @media screen and (max-width: 600px) {
                 .photo-gallery img {
-                    max-width: 100%; /* Sur téléphone, les images passent l'une sous l'autre */
+                    max-width: 100%;
                 }
+            }
+
+            /* --- STYLES DU MODE PLEIN ÉCRAN (LIGHTBOX) --- */
+            .modal-lightbox {
+                display: none; /* Caché par défaut */
+                position: fixed;
+                z-index: 10000; /* Au-dessus de tout le reste */
+                padding-top: 60px;
+                left: 0;
+                top: 0;
+                width: 100%;
+                height: 100%;
+                overflow: auto;
+                background-color: rgba(0,0,0,0.9); /* Fond noir */
+                backdrop-filter: blur(5px); /* Effet flou sur le fond */
+            }
+            .modal-content-img {
+                margin: auto;
+                display: block;
+                max-width: 90%;
+                max-height: 80vh;
+                border-radius: 8px;
+                box-shadow: 0 0 20px rgba(0,0,0,0.8);
+                animation: zoom-in 0.3s ease;
+            }
+            #modal-caption {
+                margin: auto;
+                display: block;
+                width: 80%;
+                max-width: 700px;
+                text-align: center;
+                color: #ffffff;
+                padding: 15px 0;
+                font-size: 1.1rem;
+                letter-spacing: 0.1rem;
+                animation: zoom-in 0.3s ease;
+            }
+            @keyframes zoom-in {
+                from {transform: scale(0.8); opacity: 0;}
+                to {transform: scale(1); opacity: 1;}
+            }
+            .close-modal {
+                position: absolute;
+                top: 30px;
+                right: 40px;
+                color: #f1f1f1;
+                font-size: 40px;
+                font-weight: bold;
+                transition: 0.3s;
+                cursor: pointer;
+            }
+            .close-modal:hover,
+            .close-modal:focus {
+                color: #f5a623; /* Devient orange au survol */
+                text-decoration: none;
+                cursor: pointer;
             }
         </style>
     </head>
@@ -188,7 +249,6 @@
                             <article id="profil">
                                 <h2 class="major">Profil</h2>
                                 
-                                <!-- PHOTO DE PROFIL -->
                                 <img src="images/photo_profil.jpeg" alt="Photo de Hugo Barriere" class="profile-photo" />
                                 
                                 <p>Étudiant de troisième année en BUT Mesures Physiques à l'IUT de Montpellier, je suis passionné depuis petit par les sciences. Je suis quelqu'un de curieux, ambitieux, rigoureux et autonome. J'envisage mon avenir professionnel en tant qu'ingénieur. En BUT Mesures Physiques, j'ai pu me spécialiser en MCPC (Matériaux et Contrôles Physico-Chimiques), c'est donc tout naturellement que ma poursuite d'études sera étroitement liée à ce domaine. Ce portfolio met en évidence les différentes expériences professionnelles que j'ai pu réaliser ainsi que mes différents diplômes. Il a pour objectif de détailler mes différentes compétences.</p>
@@ -211,10 +271,11 @@
                                                 <p>Ensuite, j'ai eu l'occasion d'appliquer le protocole initial de l'étude IMPROVE III en mettant en place une campagne de mesures, effectuée par la plateforme d'anesthésie en bloc opératoire sur 20 patients sédatés. Pour traiter ce flux d'informations, j'ai développé un outil d'analyse automatisé sous Excel et Python permettant de calculer précisément la puissance mécanique subie par les tissus pulmonaires. Cette campagne m'a permis d'obtenir de nombreux résultats nécessaires au déploiement de l'étude.</p>
                                                 <p>En effet, l'analyse biostatistique a révélé que certains biais étaient préoccupants par rapport à une ventilation dite "protectrice". Grâce à mes travaux, j'ai pu mettre en évidence le fait que le protocole initial d'IMPROVE III était inadapté et potentiellement délétère à hauts volumes. Avec le professeur DE JONG (coordinatrice principale de l'étude), nous avons révisé ensemble le protocole pour le rendre le plus protecteur possible.</p>
                                                 
-                                                <!-- GALERIE PHOTOS CHU -->
+                                                <!-- GALERIE PHOTOS CHU (Attribut 'alt' = la légende plein écran) -->
                                                 <div class="photo-gallery">
-                                                    <img src="images/bloc_opé.jpeg" alt="Bloc opératoire" />
-                                                    <img src="images/page_garde_rapport.jpeg" alt="Page de garde du rapport de stage" />
+                                                    <img src="images/bloc_opé.jpeg" alt="Observation en direct au bloc opératoire" />
+                                                    <img src="images/page_garde_rapport.jpeg" alt="Rapport de stage - Optimisation de la ventilation respiratoire" />
+													<img src="application_sous_python.jpeg" alt="Application construite sous python. Elle ma permit de visualiser différents biais/phénomènes de me résultats" />
                                                 </div>
                                             </div>
                                         </details>
@@ -229,10 +290,10 @@
                                             <div class="details-content">
                                                 <p>Création d'un module Arduino (prototype) pour contrôler l'orientation d'une parabole. Observation d'un ingénieur dans son travail quotidien : gestion des équipes, réunions de projets, résolutions de problèmes sur les satellites.</p>
                                                 
-                                                <!-- GALERIE PHOTOS CSU -->
+                                                <!-- GALERIE PHOTOS CSU (Attribut 'alt' = la légende plein écran) -->
                                                 <div class="photo-gallery">
-                                                    <img src="images/Centre_de_contrôle.JPG" alt="Centre de contrôle CSU" />
-                                                    <img src="images/maquette_nanosat.JPG" alt="Maquette Nanosat" />
+                                                    <img src="images/Centre_de_contrôle.JPG" alt="Centre de contrôle de mission spatiale du CSU" />
+                                                    <img src="images/maquette_nanosat.JPG" alt="Maquette d'un Nanosatellite" />
                                                 </div>
                                             </div>
                                         </details>
@@ -314,6 +375,13 @@
 
             </div>
 
+        <!-- Mode Plein Écran (Lightbox) - Ne pas modifier -->
+            <div id="image-modal" class="modal-lightbox">
+                <span class="close-modal">&times;</span>
+                <img class="modal-content-img" id="modal-img">
+                <div id="modal-caption"></div>
+            </div>
+
         <!-- BG -->
             <div id="bg"></div>
 
@@ -323,6 +391,42 @@
             <script src="assets/js/breakpoints.min.js"></script>
             <script src="assets/js/util.js"></script>
             <script src="assets/js/main.js"></script>
+            
+            <!-- Script personnalisé pour le mode plein écran -->
+            <script>
+                document.addEventListener("DOMContentLoaded", function() {
+                    var modal = document.getElementById("image-modal");
+                    var modalImg = document.getElementById("modal-img");
+                    var captionText = document.getElementById("modal-caption");
+                    var closeBtn = document.getElementsByClassName("close-modal")[0];
+
+                    // Récupérer uniquement les images des galeries d'expériences (pas le profil)
+                    var images = document.querySelectorAll(".photo-gallery img");
+
+                    images.forEach(function(img) {
+                        img.addEventListener("click", function() {
+                            modal.style.display = "flex";
+                            modal.style.flexDirection = "column";
+                            modal.style.justifyContent = "center";
+                            modalImg.src = this.src;
+                            // Utilise l'attribut "alt" de la photo pour créer la légende
+                            captionText.innerHTML = this.alt; 
+                        });
+                    });
+
+                    // Fermer la modale au clic sur la croix
+                    closeBtn.onclick = function() {
+                        modal.style.display = "none";
+                    }
+
+                    // Fermer la modale au clic sur le fond noir
+                    modal.onclick = function(e) {
+                        if (e.target !== modalImg) {
+                            modal.style.display = "none";
+                        }
+                    }
+                });
+            </script>
 
     </body>
 </html>
