@@ -49,7 +49,7 @@
                 font-weight: bold;
             }
             
-            /* 3. Système de carrousel (rétabli pour les diplômes et expériences) */
+            /* 3. Système de carrousel (diplômes et expériences) */
             .slider-container {
                 display: flex;
                 overflow-x: auto;
@@ -112,11 +112,34 @@
                 border-top: 1px solid rgba(255, 255, 255, 0.1);
             }
             
-            /* Style pour les photos personnalisées dans les détails */
+            /* --- NOUVEAUX STYLES POUR LES PHOTOS --- */
+            
+            /* Photo de profil entourée par le texte */
+            .profile-photo {
+                max-width: 200px; /* Taille modérée */
+                width: 45%; /* S'adapte sur petit écran */
+                float: left; /* Fait flotter l'image à gauche du texte */
+                margin: 0 20px 10px 0; /* Espacement avec le texte */
+                border-radius: 10px; /* Bords arrondis plus doux */
+                box-shadow: 0 5px 15px rgba(0,0,0,0.3); /* Légère ombre de profondeur */
+                border: 1px solid rgba(255, 255, 255, 0.1);
+            }
+            
+            /* Clearfix pour éviter que le profil déborde si le texte est court */
+            #profil::after {
+                content: "";
+                clear: both;
+                display: table;
+            }
+
+            /* Photos dans les expériences (centrées et plus petites) */
             .custom-photo {
-                width: 100%;
-                border-radius: 4px;
-                margin-top: 15px;
+                max-width: 300px; /* Moins grand que l'écran */
+                width: 100%; 
+                display: block; /* Permet de centrer l'image */
+                margin: 20px auto 10px auto; /* Centrage automatique */
+                border-radius: 8px;
+                box-shadow: 0 5px 15px rgba(0,0,0,0.3);
                 border: 1px solid rgba(255, 255, 255, 0.1);
             }
         </style>
@@ -154,10 +177,10 @@
                             <article id="profil">
                                 <h2 class="major">Profil</h2>
                                 
-                                <!-- PHOTO DE PROFIL ICI : Remplace photo-profil.jpg par ton image -->
-                                <span class="image main"><img src="images/photo-profil.jpg" alt="Photo de Hugo Barriere" /></span>
+                                <!-- PHOTO DE PROFIL MIEUX INTÉGRÉE (Flottante à gauche) -->
+                                <img src="images/photo-profil.jpg" alt="Photo de Hugo Barriere" class="profile-photo" />
                                 
-                                <p>Rédige ici ton profil. Explique qui tu es, tes ambitions, tes objectifs pour les années à venir (comme tes projets de poursuite d'études en école d'ingénieur) et ce qui te passionne dans ton domaine technique.</p>
+                                <p>Étudiant de troisième année en BUT Mesures Physiques à l'IUT de Montpellier, je suis passionné depuis petit par les sciences. Je suis quelqu'un de curieux, ambitieux, rigoureux et autonome. J'envisage mon avenir professionnel en tant qu'ingénieur. En BUT Mesures Physiques, j'ai pu me spécialiser en MCPC (Matériaux et Contrôles Physico-Chimiques), c'est donc tout naturellement que ma poursuite d'études sera étroitement liée à ce domaine. Ce portfolio met en évidence les différentes expériences professionnelles que j'ai pu réaliser ainsi que mes différents diplômes. Il a pour objectif de détailler mes différentes compétences.</p>
                             </article>
 
                         <!-- Expériences -->
@@ -177,7 +200,7 @@
                                                 <p>Ensuite, j'ai eu l'occasion d'appliquer le protocole initial de l'étude IMPROVE III en mettant en place une campagne de mesures, effectuée par la plateforme d'anesthésie en bloc opératoire sur 20 patients sédatés. Pour traiter ce flux d'informations, j'ai développé un outil d'analyse automatisé sous Excel et Python permettant de calculer précisément la puissance mécanique subie par les tissus pulmonaires. Cette campagne m'a permis d'obtenir de nombreux résultats nécessaires au déploiement de l'étude.</p>
                                                 <p>En effet, l'analyse biostatistique a révélé que certains biais étaient préoccupants par rapport à une ventilation dite "protectrice". Grâce à mes travaux, j'ai pu mettre en évidence le fait que le protocole initial d'IMPROVE III était inadapté et potentiellement délétère à hauts volumes. Avec le professeur DE JONG (coordinatrice principale de l'étude), nous avons révisé ensemble le protocole pour le rendre le plus protecteur possible.</p>
                                                 
-                                                <!-- PHOTO STAGE CHU ICI : Remplace photo-chu.jpg par ton image -->
+                                                <!-- PHOTO STAGE CHU PLUS PETITE ET CENTRÉE -->
                                                 <img src="images/photo-chu.jpg" alt="Stage CHU" class="custom-photo" />
                                             </div>
                                         </details>
@@ -192,7 +215,7 @@
                                             <div class="details-content">
                                                 <p>Création d'un module Arduino (prototype) pour contrôler l'orientation d'une parabole. Observation d'un ingénieur dans son travail quotidien : gestion des équipes, réunions de projets, résolutions de problèmes sur les satellites.</p>
                                                 
-                                                <!-- PHOTO STAGE CSU ICI : Remplace photo-csu.jpg par ton image -->
+                                                <!-- PHOTO STAGE CSU PLUS PETITE ET CENTRÉE -->
                                                 <img src="images/photo-csu.jpg" alt="Stage CSU" class="custom-photo" />
                                             </div>
                                         </details>
