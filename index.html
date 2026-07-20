@@ -6,15 +6,18 @@
 -->
 <html>
     <head>
-            <title>Portfolio d'Hugo BARRIERE</title>
+        <title>Portfolio d'Hugo BARRIERE</title>
         
-        <!-- Balises pour contrôler l'aperçu du lien -->
+        <!-- Balises pour contrôler l'aperçu du lien (et cacher l'image) -->
         <meta property="og:title" content="Portfolio d'Hugo BARRIERE" />
         <meta property="og:description" content="Étudiant en BUT Mesures Physiques - Découvrez mon profil et mes compétences." />
         <meta property="og:type" content="website" />
-        
-        <!-- Pour n'afficher AUCUNE image (astuce : on lui donne une image transparente de 1 pixel) -->
         <meta property="og:image" content="data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" />
+
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+        <link rel="stylesheet" href="assets/css/main.css" />
+        <noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
         
         <style>
             /* 1. Justification globale de tous les textes du contenu */
@@ -379,7 +382,7 @@
                                 
                                 <img src="images/photo_profil.jpeg" alt="Photo de Hugo Barriere" class="profile-photo" />
                                 
-                                <p>Étudiant de troisième année en BUT Mesures Physiques à l'IUT de Montpellier, je suis passionné depuis petit par les sciences. Je suis quelqu'un de curieux, ambitieux, rigoureux et autonome. J'envisage mon avenir professionnel en tant qu'ingénieur. En BUT Mesures Physiques, j'ai pu me spécialiser en MCPC (Matériaux et Contrôles Physico-Chimiques). Ce portfolio met en évidence les différentes expériences professionnelles que j'ai pu réaliser ainsi que mes différents diplômes. Il a pour objectif de détailler mes différentes compétences.</p>
+                                <p>Étudiant de troisième année en BUT Mesures Physiques à l'IUT de Montpellier, je suis passionné depuis petit par les sciences. Je suis quelqu'un de curieux, ambitieux, rigoureux et autonome. J'envisage mon avenir professionnel en tant qu'ingénieur. En BUT Mesures Physiques, j'ai pu me spécialiser en MCPC (Matériaux et Contrôles Physico-Chimiques), c'est donc tout naturellement que ma poursuite d'études sera étroitement liée à ce domaine. Ce portfolio met en évidence les différentes expériences professionnelles que j'ai pu réaliser ainsi que mes différents diplômes. Il a pour objectif de détailler mes différentes compétences.</p>
                         </article>
 
                         <!-- EXPERIENCES -->
@@ -535,7 +538,6 @@
                                 
                                 <form action="https://formsubmit.co/hugo.barriere@etu.umontpellier.fr" method="POST">
                                     
-                                    <!-- Options cachées de FormSubmit -->
                                     <input type="hidden" name="_subject" value="Nouveau message depuis ton Portfolio !">
                                     <input type="hidden" name="_captcha" value="false">
 
@@ -670,7 +672,6 @@
                         }
                     });
 
-                    // NOUVEAU SCRIPT : Réinitialiser la position du défilement au changement d'onglet
                     window.addEventListener('hashchange', function() {
                         if (window.location.hash) {
                             var sliders = document.querySelectorAll('.slider-container');
