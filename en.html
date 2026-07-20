@@ -13,12 +13,12 @@
         <noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
         
         <style>
-            /* 1. Justification globale de tous les textes du contenu */
+            /* 1. Global Text Justification */
             #main p, .details-content p {
                 text-align: justify;
             }
 
-            /* 2. Correction du menu */
+            /* 2. Menu correction */
             #header nav ul li a {
                 font-size: 0.65rem !important;
                 letter-spacing: 0.1rem !important;
@@ -29,7 +29,7 @@
                 }
             }
 
-            /* --- TOP CONTROLS (Langue + CV) --- */
+            /* --- TOP CONTROLS (Language + CV) --- */
             .top-controls {
                 position: absolute;
                 top: 2rem;
@@ -74,7 +74,7 @@
                 color: #f5a623 !important;
             }
             
-            /* 3. Système de carrousel (Slider) */
+            /* 3. Carousel System (Slider) */
             .slider-container {
                 display: flex;
                 overflow-x: auto;
@@ -83,7 +83,7 @@
                 padding-bottom: 20px;
             }
             
-            /* BARRE DE DÉFILEMENT PERSONNALISÉE */
+            /* CUSTOM SCROLLBAR */
             .slider-container::-webkit-scrollbar {
                 display: block;
                 height: 6px;
@@ -114,7 +114,7 @@
                 font-size: 1.1rem;
                 letter-spacing: 0.1rem;
             }
-            /* Style pour les Dates & Lieux */
+            /* Style for Dates & Locations */
             .slider-item h4 {
                 font-size: 0.8rem;
                 color: #f5a623;
@@ -140,7 +140,7 @@
                 font-style: italic;
             }
 
-            /* Menu déroulant (cliquable) */
+            /* Dropdown Menu (Clickable) */
             details {
                 margin-top: 15px;
                 background: rgba(0, 0, 0, 0.2);
@@ -168,7 +168,7 @@
                 border-top: 1px solid rgba(255, 255, 255, 0.1);
             }
             
-            /* --- STYLES POUR LES PHOTOS --- */
+            /* --- PHOTO STYLES --- */
             
             .profile-photo {
                 max-width: 200px;
@@ -186,7 +186,7 @@
                 display: table;
             }
 
-            /* Galerie photo */
+            /* Photo Gallery */
             .photo-gallery {
                 display: flex;
                 gap: 15px;
@@ -209,7 +209,7 @@
                 transform: scale(1.03);
             }
 
-            /* --- STYLES DU MODE PLEIN ÉCRAN (LIGHTBOX) --- */
+            /* --- LIGHTBOX STYLES --- */
             .modal-lightbox {
                 display: none; 
                 position: fixed;
@@ -289,13 +289,57 @@
                 background-color: rgba(0,0,0,0.8);
                 color: #f5a623;
             }
+
+            /* --- COLORS AND ANIMATIONS --- */
+            :root {
+                /* Main Color (Cyan Tech Blue) */
+                --accent-color: #00d2ff; 
+            }
+
+            /* 1. Subtly animated background */
+            #bg {
+                background: linear-gradient(-45deg, #111116, #1a1a24, #0d1b2a, #14213d) !important;
+                background-size: 400% 400% !important;
+                animation: gradientBG 15s ease infinite;
+                position: fixed;
+                top: 0; left: 0; width: 100%; height: 100%;
+                z-index: -1;
+            }
+            @keyframes gradientBG {
+                0% { background-position: 0% 50%; }
+                50% { background-position: 100% 50%; }
+                100% { background-position: 0% 50%; }
+            }
+
+            /* 2. Color application on key elements */
+            h2.major {
+                border-bottom: solid 2px var(--accent-color) !important;
+            }
+            .slider-item h4 {
+                color: var(--accent-color) !important;
+            }
+            .cv-btn:hover, .close-modal:hover, summary:hover, .prev-modal:hover, .next-modal:hover {
+                color: var(--accent-color) !important;
+                border-color: var(--accent-color) !important;
+            }
+            #header nav ul li a:hover {
+                color: var(--accent-color) !important;
+            }
+            
+            .slider-item {
+                transition: border-color 0.3s ease, box-shadow 0.3s ease;
+            }
+            .slider-item:hover {
+                border-color: var(--accent-color);
+                box-shadow: 0 0 15px rgba(0, 210, 255, 0.15);
+            }
         </style>
     </head>
     <body class="is-preload">
 
         <div id="wrapper">
                 
-                <!-- TOP CONTROLS : Langues + CV -->
+                <!-- TOP CONTROLS : Languages + CV -->
                 <div class="top-controls">
                     <div class="language-toggle">
                         <a href="index.html">FR</a> | <a href="en.html" class="active">EN</a>
@@ -316,7 +360,7 @@
                                 <li><a href="#profil">Profile</a></li>
                                 <li><a href="#experiences">Experience</a></li>
                                 <li><a href="#competences">Skills</a></li>
-                                <li><a href="#diplomes">Degrees</a></li>
+                                <li><a href="#diplomes">Education</a></li>
                                 <li><a href="#contact">Contact</a></li>
                             </ul>
                         </nav>
@@ -328,9 +372,9 @@
                         <article id="profil">
                                 <h2 class="major">Profile</h2>
                                 
-                                <img src="images/photo_profil.jpeg" alt="Hugo Barriere Portrait" class="profile-photo" />
+                                <img src="images/photo_profil.jpeg" alt="Photo of Hugo Barriere" class="profile-photo" />
                                 
-                                <p>Third-year student in a Bachelor of Technology (BUT) in Physical Measurements at the IUT of Montpellier, I have been passionate about science since childhood. I am a curious, ambitious, rigorous, and autonomous individual. My professional aspiration is to become an engineer. During my BUT, I specialized in Materials and Physico-Chemical Controls (MCPC), making it a natural choice to align my further studies with this technical field. This portfolio highlights my various professional experiences and academic background, detailing the practical skills I have acquired.</p>
+                                <p>As a third-year student in the Physical Measurements Bachelor of Technology (BUT) at the IUT of Montpellier, I have been passionate about science since childhood. I am a curious, ambitious, rigorous, and independent individual. My professional aspiration is to become an engineer. During my BUT, I specialized in Materials and Physico-Chemical Controls (MCPC). This portfolio highlights the various professional experiences I have completed as well as my academic background. Its goal is to provide a detailed overview of my technical skills.</p>
                         </article>
 
                         <!-- EXPERIENCES -->
@@ -354,7 +398,7 @@
                                                 <div class="photo-gallery">
                                                     <img src="images/bloc_opé.jpeg" alt="Live observation in the operating room" />
                                                     <img src="images/page_garde_rapport.jpeg" alt="Internship Report - Optimization of respiratory ventilation" />
-                                                    <img src="images/application_sous_pyhton.jpeg" alt="Application developed in Python ; https://projet-meca-resp-x782v9x37658924865927476zz-8wi8n7jfcvza9slnkm.streamlit.app" />
+                                                    <img src="images/application_sous_python.jpeg" alt="Application developed in Python ; https://projet-meca-resp-x782v9x37658924865927476zz-8wi8n7jfcvza9slnkm.streamlit.app" />
                                                 </div>
                                             </div>
                                         </details>
@@ -368,7 +412,7 @@
                                         <details>
                                             <summary>View missions</summary>
                                             <div class="details-content">
-                                                <p>Created an Arduino module (prototype) to control the orientation of a satellite dish. Shadowed an engineer in his daily work, gaining insights into team management, project meetings, and satellite problem-solving.</p>
+                                                <p>Creation of an Arduino module (prototype) to control the orientation of a satellite dish. Shadowed an engineer in his daily work: team management, project meetings, and problem-solving on satellites.</p>
                                                 
                                                 <div class="photo-gallery">
                                                     <img src="images/Centre_de_contrôle.JPG" alt="CSU Space Mission Control Center" />
@@ -380,25 +424,25 @@
                                     
                                     <div class="slider-item">
                                         <h3>OTHER EXPERIENCES</h3>
-                                        
-                                        <p>Seasonal and student employment.</p>
+                                
+                                        <p>Seasonal and student jobs.</p>
                                         
                                         <details>
                                             <summary>View details</summary>
                                             <div class="details-content">
-                                                <p><strong>Burger King (Le Bosc) 2024:</strong> Versatile team member (teamwork, stress management under fast-paced conditions).</p>
-                                                <p><strong>Grape Harvest (Clos Aguilem) 2025:</strong> Seasonal agricultural worker (rigor, physical endurance, and strong adaptability).</p>
+                                                <p><strong>Burger King (Le Bosc) 2024:</strong> Versatile team member (teamwork, stress management in fast-paced environments).</p>
+                                                <p><strong>Grape Harvest (Clos Aguilem) 2025:</strong> Seasonal agricultural worker (rigor, physical endurance, adaptability).</p>
                                             </div>
                                         </details>
                                     </div>
                                 </div>
                         </article>
 
-                        <!-- SKILLS -->
+                        <!-- COMPETENCES -->
                         <article id="competences">
                                 <h2 class="major">Skills & Education</h2>
                                 
-                                <p><strong>The BUT in Physical Measurements</strong> is a highly demanding and versatile scientific and technological degree. It provides comprehensive training in applied physics, chemistry, instrumentation, and metrology.</p>
+                                <p>The <strong>Physical Measurements BUT</strong> is a highly demanding and versatile scientific and technological program. It trains students in applied physics, chemistry, instrumentation, and metrology.</p>
                                 <p>By choosing the <strong>Materials and Physico-Chemical Controls (MCPC)</strong> specialty, I focused on the analysis, characterization, and control of material properties.</p>
                                 
                                 <p class="slider-instruction">Swipe right to see more &rarr;</p>
@@ -407,9 +451,9 @@
                                     <div class="slider-item">
                                         <h3>Instrumentation & Metrology</h3>
                                         <ul>
-                                            <li>Deployment, configuration, and calibration of measurement chains (sensors, conditioners).</li>
-                                            <li>Evaluation of measurement uncertainties and application of current industrial metrology standards.</li>
-                                            <li>Signal processing, analog/digital electronics, optics, and thermodynamics.</li>
+                                            <li>Deployment, configuration, and calibration of measurement chains (sensors, signal conditioners).</li>
+                                            <li>Evaluation of measurement uncertainties and application of current industrial metrological standards.</li>
+                                            <li>Signal processing, analog/digital electronics, optics, mechanics (fluids, vibrations).</li>
                                         </ul>
                                     </div>
                                     
@@ -423,35 +467,46 @@
                                     </div>
                                     
                                     <div class="slider-item">
-                                        <h3>Digital & IT Tools</h3>
+                                        <h3>Digital Tools & IT</h3>
                                         <ul>
                                             <li><strong>Programming:</strong> Solid proficiency in Python (development of analysis tools) and microcontroller programming (Arduino, C++).</li>
-                                            <li><strong>Data Analysis:</strong> Processing large volumes of data and implementing automation using Excel.</li>
+                                            <li><strong>Data Analysis:</strong> Processing large volumes of data and automation in Excel.</li>
                                             <li><strong>Acquisition:</strong> LabVIEW for instrument interfacing and measurement bench automation.</li>
-											<li><strong>Simulation:</strong> SolidWorks as a Computer-Aided Design (CAD) tool.</li>
+											<li><strong>Simulation:</strong> SolidWorks as a CAD (Computer-Aided Design) tool.</li>
+                                        </ul>
+                                    </div>
+
+                                    <div class="slider-item">
+                                        <h3>Core Skills of the Physical Measurements BUT</h3>
+                                        <ul>
+                                            <li>Conduct a measurement campaign (Level 2/3).</li>
+                                            <li>Deploy metrology and quality management protocols (Level 2/3).</li>
+                                            <li>Implement a measurement and instrumentation chain (Level 2/3).</li>
+                                            <li>Characterize physical and chemical quantities as well as the properties of a material (Level 2/3).</li>
+                                            <li>Define measurement specifications within an environmental approach (Level 2/3).</li>
                                         </ul>
                                     </div>
                                     
                                     <div class="slider-item">
                                         <h3>Soft Skills</h3>
                                         <ul>
-                                            <li><strong>Scientific Rigor:</strong> Critical analysis of experimental results and bias identification.</li>
+                                            <li><strong>Scientific Rigor:</strong> Critical analysis of experimental results and identification of biases.</li>
                                             <li><strong>Communication:</strong> Professional drafting of technical and scientific reports.</li>
-                                            <li><strong>Adaptability:</strong> Technical project management, ability to work autonomously, and strong team spirit in laboratories as well as in unexpected environments like an operating room.</li>
+                                            <li><strong>Adaptability:</strong> Technical project management, ability to work independently, and strong team spirit in a laboratory setting as well as in a more unexpected context like an operating room.</li>
                                         </ul>
                                     </div>
                                 </div>
                         </article>
 
-                        <!-- DEGREES -->
+                        <!-- DIPLOMES -->
                         <article id="diplomes">
-                                <h2 class="major">Degrees</h2>
+                                <h2 class="major">Education</h2>
                                 <p class="slider-instruction">Swipe right to see more &rarr;</p>
                                 
                                 <div class="slider-container">
                                     <div class="slider-item">
                                         <h3>BACHELOR OF TECHNOLOGY (BUT) IN PHYSICAL MEASUREMENTS</h3>
-                                        <h4>IUT Montpellier-Sète, France | 2024 - 2027</h4>
+                                        <h4>IUT Montpellier-Sète, France | 2024 - 2027 (Ongoing)</h4>
                                         <p>Specialty: Materials and Physico-Chemical Controls. Intensive training focused on metrology, instrumentation, and material characterization.</p>
                                     </div>
                                     
@@ -472,29 +527,32 @@
                         <!-- CONTACT -->
                         <article id="contact">
                                 <h2 class="major">Contact</h2>
-                                <form method="post" action="#">
+                                
+                                <form action="https://formsubmit.co/hugo.barriere@etu.umontpellier.fr" method="POST">
+                                    <input type="hidden" name="_subject" value="New message from your Portfolio!">
+                                    <input type="hidden" name="_captcha" value="false">
+
                                     <div class="fields">
                                         <div class="field half">
                                             <label for="name">Name</label>
-                                            <input type="text" name="name" id="name" />
+                                            <input type="text" name="name" id="name" required />
                                         </div>
                                         <div class="field half">
                                             <label for="email">Email</label>
-                                            <input type="text" name="email" id="email" />
+                                            <input type="email" name="email" id="email" required />
                                         </div>
                                         <div class="field">
                                             <label for="message">Message</label>
-                                            <textarea name="message" id="message" rows="4"></textarea>
+                                            <textarea name="message" id="message" rows="4" required></textarea>
                                         </div>
                                     </div>
                                     <ul class="actions">
-                                        <li><input type="submit" value="Send Message" class="primary" /></li>
+                                        <li><input type="submit" value="Send" class="primary" /></li>
                                         <li><input type="reset" value="Clear" /></li>
                                     </ul>
                                 </form>
                                 <ul class="icons">
-                                    <li><a href="#" class="icon brands fa-linkedin"><span class="label">LinkedIn</span></a></li>
-                                    <li><a href="#" class="icon brands fa-github"><span class="label">GitHub</span></a></li>
+                                    <li><a href="https://www.linkedin.com/in/hugo-barriere-728002331" target="_blank" rel="noopener noreferrer" class="icon brands fa-linkedin"><span class="label">LinkedIn</span></a></li>
                                 </ul>
                             </article>
 
@@ -602,6 +660,21 @@
                             } else if (e.key === "Escape") {
                                 modal.style.display = "none";
                             }
+                        }
+                    });
+
+                    // Reset scroll position on tab change
+                    window.addEventListener('hashchange', function() {
+                        if (window.location.hash) {
+                            var sliders = document.querySelectorAll('.slider-container');
+                            sliders.forEach(function(slider) {
+                                slider.scrollLeft = 0;
+                            });
+                            
+                            var details = document.querySelectorAll('details');
+                            details.forEach(function(detail) {
+                                detail.removeAttribute('open');
+                            });
                         }
                     });
                 });

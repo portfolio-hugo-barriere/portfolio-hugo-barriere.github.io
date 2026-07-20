@@ -326,7 +326,7 @@
                 color: var(--accent-color) !important;
             }
 
-            /* 3. Effet lumineux "néon" au survol des cadres (très moderne) */
+            /* 3. Effet lumineux "néon" au survol des cadres */
             .slider-item {
                 transition: border-color 0.3s ease, box-shadow 0.3s ease;
             }
@@ -399,7 +399,7 @@
                                                 <div class="photo-gallery">
                                                     <img src="images/bloc_opé.jpeg" alt="Observation en direct au bloc opératoire" />
                                                     <img src="images/page_garde_rapport.jpeg" alt="Rapport de stage - Optimisation de la ventilation respiratoire" />
-                                                    <img src="images/application_sous_pyhton.jpeg" alt="Application développée sous python ; https://projet-meca-resp-x782v9x37658924865927476zz-8wi8n7jfcvza9slnkm.streamlit.app" />
+                                                    <img src="images/application_sous_python.jpeg" alt="Application développée sous python ; https://projet-meca-resp-x782v9x37658924865927476zz-8wi8n7jfcvza9slnkm.streamlit.app" />
                                                 </div>
                                             </div>
                                         </details>
@@ -443,8 +443,8 @@
                         <article id="competences">
                                 <h2 class="major">Compétences & Formation</h2>
                                 
-                                <p><strong>Le BUT Mesures Physiques</strong> est une formation scientifique et technologique particulièrement exigeante et polyvalente. Elle forme à la physique appliquée, la chimie, l'instrumentation et la métrologie.</p>
-                                <p>En choisissant la spécialité <strong>Matériaux et Contrôles Physico-Chimiques (MCPC)</strong>, je me suis spécialisé dans l'analyse, la caractérisation et le contrôle des propriétés des matériaux.</p>
+                                <p>Le BUT Mesures Physiques est une formation scientifique et technologique particulièrement exigeante et polyvalente. Elle forme à la physique appliquée, la chimie, l'instrumentation et la métrologie.</p>
+                                <p>En choisissant la spécialité Matériaux et Contrôles Physico-Chimiques (MCPC), je me suis spécialisé dans l'analyse, la caractérisation et le contrôle des propriétés des matériaux.</p>
                                 
                                 <p class="slider-instruction">Faites glisser vers la droite &rarr;</p>
                                 
@@ -453,8 +453,8 @@
                                         <h3>Instrumentation & Métrologie</h3>
                                         <ul>
                                             <li>Déploiement, paramétrage et étalonnage de chaînes de mesure (capteurs, conditionneurs).</li>
-                                            <li>Évaluation des incertitudes de mesure et application des normes métrologiques industrielles en vigueurs.</li>
-                                            <li>Traitement du signal, électronique analogique/numérique, optique et thermodynamique.</li>
+                                            <li>Évaluation des incertitudes de mesure et application des normes métrologiques industrielles en vigueur.</li>
+                                            <li>Traitement du signal, électronique analogique/numérique, optique, mécanique (fluides, vibratoire).</li>
                                         </ul>
                                     </div>
                                     
@@ -474,6 +474,17 @@
                                             <li><strong>Analyse de données :</strong> Traitement de grands volumes de données et automatisation sous Excel.</li>
                                             <li><strong>Acquisition :</strong> LabVIEW pour l'interfaçage des instruments et l'automatisation des bancs de mesure.</li>
 											<li><strong>Simulation :</strong> SolidWorks comme outil de CAO (Conception assistée par ordinateur).</li>
+                                        </ul>
+                                    </div>
+
+                                    <div class="slider-item">
+                                        <h3>Compétences du BUT Mesures Physiques</h3>
+                                        <ul>
+                                            <li>Mener une campagne de mesure (Niv 2/3).</li>
+                                            <li>Déployer la métrologie et la démarche qualité (Niv 2/3).</li>
+                                            <li>Mettre en œuvre une chaîne de mesure et d'instrumentation (Niv 2/3).</li>
+                                            <li>Caractériser des grandeurs physiques, chimiques et les propriétés d'un matériau (Niv 2/3).</li>
+                                            <li>Définir un cahier des charges de mesures dans une démarche environnementale (Niv 2/3).</li>
                                         </ul>
                                     </div>
                                     
@@ -496,7 +507,7 @@
                                 <div class="slider-container">
                                     <div class="slider-item">
                                         <h3>BUT MESURES PHYSIQUES</h3>
-                                        <h4>IUT Montpellier-Sète, France | 2024 - 2027</h4>
+                                        <h4>IUT Montpellier-Sète, France | 2024 - 2027 (En cours)</h4>
                                         <p>Spécialité Matériaux et Contrôles Physico-Chimiques. Formation axée sur la métrologie, l'instrumentation et la caractérisation des matériaux.</p>
                                     </div>
                                     
@@ -517,19 +528,25 @@
                         <!-- CONTACT -->
                         <article id="contact">
                                 <h2 class="major">Contact</h2>
-                                <form method="post" action="#">
+                                
+                                <form action="https://formsubmit.co/hugo.barriere@etu.umontpellier.fr" method="POST">
+                                    
+                                    <!-- Options cachées de FormSubmit -->
+                                    <input type="hidden" name="_subject" value="Nouveau message depuis ton Portfolio !">
+                                    <input type="hidden" name="_captcha" value="false">
+
                                     <div class="fields">
                                         <div class="field half">
                                             <label for="name">Nom</label>
-                                            <input type="text" name="name" id="name" />
+                                            <input type="text" name="name" id="name" required />
                                         </div>
                                         <div class="field half">
                                             <label for="email">Email</label>
-                                            <input type="text" name="email" id="email" />
+                                            <input type="email" name="email" id="email" required />
                                         </div>
                                         <div class="field">
                                             <label for="message">Message</label>
-                                            <textarea name="message" id="message" rows="4"></textarea>
+                                            <textarea name="message" id="message" rows="4" required></textarea>
                                         </div>
                                     </div>
                                     <ul class="actions">
@@ -538,8 +555,7 @@
                                     </ul>
                                 </form>
                                 <ul class="icons">
-                                    <li><a href="#" class="icon brands fa-linkedin"><span class="label">LinkedIn</span></a></li>
-                                    <li><a href="#" class="icon brands fa-github"><span class="label">GitHub</span></a></li>
+                                    <li><a href="https://www.linkedin.com/in/hugo-barriere-728002331" target="_blank" rel="noopener noreferrer" class="icon brands fa-linkedin"><span class="label">LinkedIn</span></a></li>
                                 </ul>
                             </article>
 
@@ -647,6 +663,21 @@
                             } else if (e.key === "Escape") {
                                 modal.style.display = "none";
                             }
+                        }
+                    });
+
+                    // NOUVEAU SCRIPT : Réinitialiser la position du défilement au changement d'onglet
+                    window.addEventListener('hashchange', function() {
+                        if (window.location.hash) {
+                            var sliders = document.querySelectorAll('.slider-container');
+                            sliders.forEach(function(slider) {
+                                slider.scrollLeft = 0;
+                            });
+                            
+                            var details = document.querySelectorAll('details');
+                            details.forEach(function(detail) {
+                                detail.removeAttribute('open');
+                            });
                         }
                     });
                 });
